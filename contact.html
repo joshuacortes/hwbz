@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Career Finder</title>
+  <meta name="description" content="Get in touch with Career Finder. Contact us for support, inquiries, or feedback.">
+  <meta name="keywords" content="contact, career finder, support, phone number, email, address">
+  <meta name="author" content="CareerFinder" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { font-family: Arial, sans-serif; background-color: #f5f5f5; }
+
+    header {
+      background-color: #1a237e;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo { font-size: 1.5rem; font-weight: bold; }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c5cae9;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-container h1 {
+      color: #1a237e;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      color: #3949ab;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #1a237e;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #c5cae9;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">CareerFinder</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="main-nav">
+        <a href="/hwbz/home">Home</a>
+        <a href="/hwbz/jobs">Job Listings</a>
+        <a href="/hwbz/candidates">Candidates</a>
+        <a href="/hwbz/employers">Employers</a>
+        <a href="/hwbz/signin">Sign In</a>
+        <a href="/hwbz/register">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("main-nav").classList.toggle("active");
+    }
+  </script>
+
+  <!-- Contact Info Section -->
+  <section class="contact-container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+      <p><strong>Address:</strong><br>
+      215 S Vermont Ave.<br>
+      Los Angeles, CA 90004</p>
+
+      <p><strong>Phone:</strong><br>
+      <a href="tel:2137571126">(213) 757-1126</a><br>
+      <a href="tel:3233382335">(323) 338-2335</a></p>
+
+      <p><strong>Email:</strong><br>
+      <a href="mailto:deniseallison19@yahoo.com">deniseallison19@yahoo.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 CareerFinder. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/hwbz/privacy">Privacy Policy</a>
+        <a href="/hwbz/terms">Terms</a>
+        <a href="/hwbz/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
