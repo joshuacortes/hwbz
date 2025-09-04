@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Job Listing | HWBZ Staffing</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #1a237e;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c5cae9;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .page-section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-section h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #1a237e;
+    }
+
+    footer {
+      background-color: #1a237e;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #c5cae9;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">HWBZ Staffing</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="main-nav">
+        <a href="/">Home</a>
+        <a href="/jobs">Job Listings</a>
+        <a href="/candidates">Candidates</a>
+        <a href="/employers">Employers</a>
+        <a href="/signin">Sign In</a>
+        <a href="/register">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <section class="page-section">
+    <h1>Create a Job Listing</h1>
+  
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem; color: #333;">
+  Reach top-tier talent faster by submitting your open job positions through the form below. Whether you're hiring for temporary, contract, or full-time roles, HWBZ Staffing helps connect you with qualified candidates quickly and efficiently.
+</p>
+    <script type="text/javascript" src="https://form.jotform.com/jsform/252396967301161"></script>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 HWBZ Staffing. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Mobile Menu -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("main-nav");
+      nav.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
+ 
