@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jobs, HWBZ Staffing</title>
+  <title>Job Listings | HWBZ Staffing</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* ================= Global ================= */
+    :root{
+      --accent: 255, 45, 85;
+      --glass: rgba(255,255,255,0.08);
+      --text-contrast: rgba(255,255,255,0.96);
+      --max-width: 1200px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
 
+    a {text-decoration:none}
+
+    /* ================= Header & Navigation ================= */
     header {
       background-color: #1a237e;
       color: white;
@@ -70,11 +74,78 @@
       .menu-toggle {
         display: block;
       }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ================= Jobs Section ================= */
+    .jobs-section {
+      background-color: #f8fafc;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .jobs-container {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .jobs-container h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: #1a237e;
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      min-height: 1500px;
+    }
+
+    /* ================= Footer ================= */
+    footer {
+      background-color: #1a237e;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #c5cae9;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:480px){
+      .footer-links a{font-size:0.8rem;}
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="nav-container">
       <div class="logo">HWBZ Staffing</div>
@@ -84,11 +155,9 @@
         <a href="/jobs">Job Listings</a>
         <a href="/candidates">Candidates</a>
         <a href="/employers">Employers</a>
-        <a href="/signin">Sign In</a>
-        <a href="/register">Register</a>
       </nav>
     </div>
-  </header> 
+  </header>
 
   <script>
     function toggleMenu() {
@@ -96,42 +165,35 @@
       nav.classList.toggle("active");
     }
   </script>
-<iframe id="JotFormIFrame-252576171742157" title="HWBZ Jobs" allow="geolocation; microphone; camera" src="https://www.jotform.com/app/252576171742157?appEmbedded=1" style="height:2520px; width:100%; border: 0;"></iframe>
-  </div>
-  <!-- Body Section with Cover Image -->
-  <section class="cover-section">
-    <div class="cover-overlay">
-      <h1>Find Your Dream Job</h1>
-      <p>Search thousands of opportunities from top companies</p>
-      <a href="/jobs" class="cta-button">Browse Jobs</a>
+
+  <!-- Jobs Section -->
+  <section class="jobs-section">
+    <div class="jobs-container">
+      <h1>Current Job Listings</h1>
+      <iframe id="JotFormIFrame-252576171742157" 
+              title="HWBZ Jobs" 
+              allow="geolocation; microphone; camera" 
+              src="https://www.jotform.com/app/252576171742157?appEmbedded=1" 
+              style=""></iframe>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>
-      <b>HWBZ Staffing</b>
-<br>
+      <b>HWBZ Staffing</b><br>
       215 S Vermont Ave. Los Angeles, CA 90004<br><br>
       (657)239-6371<br>
       hwbzstaffing@gmail.com<br>
       <br>
-      
-      &copy;2025 HWBZ Staffing. All rights reserved.</p>
+      &copy;2025 HWBZ Staffing. All rights reserved.
+    </p>
     <div class="footer-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms</a>
       <a href="/contact">Contact</a>
     </div>
   </footer>
-
-  <!-- Script -->
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById("main-nav");
-      nav.classList.toggle("active");
-    }
-  </script> 
 
 </body>
 </html>
