@@ -441,32 +441,29 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 HWBZ Staffing. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms</a>
-        <a href="/contact">Contact</a>
-      </div>
+    <p>
+      <b>HWBZ Staffing</b>
+<br>
+      215 S Vermont Ave. Los Angeles, CA 90004<br><br>
+      (657)239-6371<br>
+      hwbzstaffing@gmail.com<br>
+      <br>
+      
+      &copy;2025 HWBZ Staffing. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+      <a href="/contact">Contact</a>
     </div>
   </footer>
 
+  <!-- Script -->
   <script>
-    const jobForm = document.getElementById('jobForm');
-    jobForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const title = document.getElementById('jobTitle').value.trim();
-      const company = document.getElementById('companyName').value.trim();
-      const location = document.getElementById('location').value.trim();
+    function toggleMenu() {
+      const nav = document.getElementById("main-nav");
+      nav.classList.toggle("active");
+    }
+  </script> 
 
-      if (!title || !company || !location) {
-        alert('Please complete all fields before posting your job.');
-        return;
-      }
-
-      alert(`Thank you, ${company}! Your job posting for “${title}” in ${location} has been received.`);
-      jobForm.reset();
-    });
-  </script>
 </body>
 </html>
