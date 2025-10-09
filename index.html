@@ -5,15 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HWBZ Staffing</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+   
 
-    body {
-      font-family: Arial, sans-serif;
-    }
 
     header {
       background-color: #1a237e;
@@ -95,6 +88,208 @@
     }
   </script>
 
+  
+  <style>
+    :root{
+      --accent: 255, 45, 85; /* pink-red for highlight (R,G,B) */
+      --glass: rgba(255,255,255,0.08);
+      --text-contrast: rgba(255,255,255,0.96);
+      --max-width: 1200px;
+    }
+
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    /* Container */
+    .hero{
+      position:relative;
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      color:var(--text-contrast);
+      background:#111;
+    }
+
+    /* Background image + blur layer */
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.05);
+      filter: blur(8px) brightness(0.6);
+      z-index:0;
+      will-change:transform;
+    }
+
+    /* subtle animated gradient on top of the blur for depth */
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(135deg, rgba(12,12,12,0.35), rgba(6,18,44,0.35));
+      mix-blend-mode:overlay;
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:var(--max-width);
+      padding:48px 32px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      justify-items:center;
+      text-align:center;
+    }
+
+    /* Card-like centered copy */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px) saturate(120%);
+      -webkit-backdrop-filter: blur(6px) saturate(120%);
+      border-radius:16px;
+      padding:28px 32px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      max-width:880px;
+      width:100%;
+    }
+
+    h1{
+      margin:0 0 12px 0;
+      font-weight:700;
+      font-size:clamp(1.85rem, 3.5vw, 2.6rem);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+    }
+
+    /* Highlighted text style */
+    .highlight{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(var(--accent),0.14), rgba(var(--accent),0.06));
+      color:rgba(var(--accent),1);
+      font-weight:600;
+      -webkit-text-stroke: 0px transparent;
+      box-decoration-break: clone;
+    }
+
+    p.lead{
+      margin:0 0 18px 0;
+      color:rgba(255,255,255,0.85);
+      font-size:clamp(1rem, 1.6vw, 1.125rem);
+    }
+
+    /* CTA area */
+    .cta-row{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
+    .btn{
+      -webkit-appearance:none;appearance:none;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.95rem;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg, rgba(var(--accent),1), rgba(255,115,148,1));
+      color:white;
+    }
+
+    .btn-ghost{
+      background:transparent;color:var(--text-contrast);border:1px solid rgba(255,255,255,0.08);
+      padding:11px 16px;
+    }
+
+    /* small helper text under CTA */
+    .muted{
+      margin-top:10px;font-size:0.9rem;color:rgba(255,255,255,0.65)
+    }
+
+    /* Responsive: move to a two-column layout on wide screens */
+    @media(min-width:960px){
+      .hero-inner{grid-template-columns: 1fr 380px; align-items:center; text-align:left}
+      .card{padding:36px}
+      .hero-copy{padding-right:24px}
+      .centered-card{justify-self:end}
+    }
+
+    /* Small polish: subtle entrance animation */
+    .card{transform:translateY(6px);opacity:0;animation:rise 700ms cubic-bezier(.2,.9,.2,1) 200ms forwards}
+    @keyframes rise{to{transform:none;opacity:1}}
+
+    /* Accessibility focus ring */
+    .btn:focus{outline:3px solid rgba(var(--accent),0.18);outline-offset:3px}
+
+  </style>
+  <header class="hero" role="banner" aria-label="Upload your resume hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="card">
+          <h1>
+            Upload your resume to employers & get
+            <span class="highlight">calls & placement instantly</span>
+          </h1>
+          <p class="lead">Connect with hiring employers actively searching in your area. Fast responses, verified opportunities, and streamlined placement — all from one clean dashboard.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary" id="uploadBtn">Upload Resume</button>
+            <button class="btn btn-ghost" id="browseBtn">Browse Jobs</button>
+          </div>
+          <p class="muted">No spam • Privacy-first • Free to upload</p>
+        </div>
+      </div>
+
+      <!-- small card on the right with features (optional) -->
+      <div class="centered-card">
+        <div class="card" style="max-width:360px">
+          <p style="margin:0;font-size:0.95rem;font-weight:700;">Why HWBZ Staffing</p>
+          <ul style="margin:12px 0 0 18px;padding:0;color:rgba(255,255,255,0.9)">
+            <li>Employers call candidates directly</li>
+            <li>Verified shifts & placements</li>
+            <li>Fast matching — save time</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <script>
+    // Small demo: clicking "Upload Resume" opens file picker and shows a toast
+    const uploadBtn = document.getElementById('uploadBtn');
+    uploadBtn.addEventListener('click', ()=>{
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.pdf,.doc,.docx';
+      input.onchange = (e)=>{
+        const file = e.target.files[0];
+        if(!file) return;
+        // demo toast
+        alert('Thanks — "' + file.name + '" selected. Employers will be notified.');
+      };
+      input.click();
+    });
+
+    document.getElementById('browseBtn').addEventListener('click', ()=>{
+      // placeholder action
+      window.location.href = '#jobs';
+    })
+  </script>
+
+  
+  
+  
+  
 <iframe id="JotFormIFrame-252576171742157" title="HWBZ Jobs" allow="geolocation; microphone; camera" src="https://www.jotform.com/app/252576171742157?appEmbedded=1" style="height:1450px; width:100%; border: 0;"></iframe>
   </div>
 
