@@ -192,7 +192,9 @@
     }
 
     @media(min-width:960px){
-      .hero-inner{grid-template-columns: 1fr 380px; align-items:center; text-align:left}
+      .hero-inner{  grid-template-columns: 1fr !important; /* make single column */
+    text-align: center;                    /* center text */
+    justify-items: center;  }
       .card{padding:36px}
       .hero-copy{padding-right:24px}
       .centered-card{justify-self:end}
@@ -370,35 +372,26 @@
   </script>
 
   <!-- Hero Section -->
-  <header class="hero" role="banner" aria-label="Upload your resume hero">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="card">
-          <h1>
-            Upload your resume to employers & get
-            <span class="highlight">calls & placement instantly</span>
-          </h1>
-          <p class="lead">Connect with hiring employers actively searching in your area. Fast responses, verified opportunities, and streamlined placement — all from one clean dashboard.</p>
-          <div class="cta-row">
-            <a href="/upload-resume"><button class="btn btn-primary">Upload Resume</button></a>
-            <a href="/jobs"><button class="btn btn-ghost">Browse Jobs</button></a>
-          </div>
-          <p style="color:#fff;" class="muted">No spam • Privacy-first • Free to upload</p>
+ <!-- Hero Section -->
+<header class="hero" role="banner" aria-label="Upload your resume hero">
+  <div class="hero-inner" style="justify-items:center;">
+    <div class="hero-copy">
+      <div class="card">
+        <h1>
+          Sign up or log in to get 
+          <span class="highlight">job matches made for you.</span>
+        </h1>
+        <p class="lead">Connect with hiring employers actively searching in your area. Fast responses, verified opportunities, and streamlined placement — all from one clean dashboard.</p>
+        <div class="cta-row">
+          <a href="/upload-resume"><button class="btn btn-primary">Upload Resume</button></a>
+          <a href="/jobs"><button class="btn btn-ghost">Browse Jobs</button></a>
         </div>
-      </div>
-
-      <div class="centered-card">
-        <div class="card" style="max-width:360px">
-          <p style="margin:0;font-size:0.95rem;font-weight:700;">Why HWBZ Staffing</p>
-          <ul style="margin:12px 0 0 18px;padding:0;color:rgba(255,255,255,0.9)">
-            <li>Employers call candidates directly</li>
-            <li>Verified shifts & placements</li>
-            <li>Fast matching — save time</li>
-          </ul>
-        </div>
+        <p style="color:#fff;" class="muted">No spam • Privacy-first • Free to upload</p>
       </div>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Employer Section -->
   <section class="employer-section" id="employers">
