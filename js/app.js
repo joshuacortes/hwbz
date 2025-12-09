@@ -1,12 +1,3 @@
-function formatDate(dateStr) {
-  const d = new Date(dateStr);
-  const month = d.getMonth() + 1; // 0-based
-  const day = d.getDate();
-  const year = d.getFullYear();
-  return `${month}/${day}/${year}`;
-}
-
-
 // Config
 const JOBS_JSON = 'data/jobs.json';
 
@@ -17,6 +8,15 @@ function escapeHtml(text) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+// Format Posted Date → MM/DD/YYYY
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  const month = d.getMonth() + 1;
+  const day = d.getDate();
+  const year = d.getFullYear();
+  return `${month}/${day}/${year}`;
 }
 
 // Load jobs from JSON
@@ -31,7 +31,7 @@ async function loadJobs() {
   }
 }
 
-// Render jobs
+// Render jobs WITH DROP-DOWN ACCORDIONS
 function displayJobs(jobs) {
   const results = document.getElementById("results");
   results.innerHTML = "";
@@ -64,7 +64,7 @@ function displayJobs(jobs) {
     `;
   });
 
-  // Add accordion click listeners
+  // Accordion toggle behavior
   document.querySelectorAll(".accordion-header").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.getAttribute("data-acc");
@@ -73,7 +73,6 @@ function displayJobs(jobs) {
     });
   });
 }
-
 
 // INIT
 async function initSearch() {
