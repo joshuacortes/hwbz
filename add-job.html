@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Job Listing</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial; padding: 20px; max-width: 700px; margin: auto; }
+    input, textarea, select {
+      width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px;
+    }
+    button { padding: 12px 20px; font-size: 16px; cursor: pointer; }
+    #output-box {
+      white-space: pre-wrap;
+      background: #f7f7f7;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Add a Job Listing</h1>
+<p>Fill out the form below. Copy the generated JSON into <code>jobs.json</code>.</p>
+
+<form id="jobForm">
+  <input type="text" id="title" placeholder="Job Title" required>
+
+  <input type="text" id="company" placeholder="Company Name" required>
+
+  <input type="text" id="location" placeholder="Location (City, State)" required>
+
+  <select id="type" required>
+    <option value="">Select Job Type</option>
+    <option>Full-Time</option>
+    <option>Part-Time</option>
+    <option>Per-Diem</option>
+    <option>Contract</option>
+  </select>
+
+  <textarea id="description" placeholder="Job Description" rows="6" required></textarea>
+
+  <button type="button" onclick="generateJSON()">Generate JSON</button>
+</form>
+
+<h2>Generated JSON Output</h2>
+<div id="output-box">{ JSON will appear here }</div>
+
+<script src="js/job-form.js"></script>
+
+</body>
+</html>
 
