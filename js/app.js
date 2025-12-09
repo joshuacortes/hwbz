@@ -54,7 +54,7 @@ function displayJobs(jobs) {
       .replace(/\n/g, "<br>")
    }</p>
         <p><a href="${job.apply_url}" class="apply-button">Apply Now</a></p>
-        <p><em>Posted: ${escapeHtml(job.posted)}</em></p>
+       <p><em>Posted: ${formatDate(job.posted)}</em></p>
       </div>
     `;
   });
