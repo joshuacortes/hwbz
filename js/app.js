@@ -1,7 +1,7 @@
 // Config
 const JOBS_JSON = 'data/jobs.json';
 
-// Escape HTML to prevent injection
+// Escape HTML safe function
 function escapeHtml(text) {
   if (!text) return "";
   return text
@@ -15,15 +15,14 @@ async function loadJobs() {
   try {
     const res = await fetch(JOBS_JSON);
     if (!res.ok) throw new Error("Failed to load jobs.json");
-    const jobs = await res.json();
-    return jobs;
+    return await res.json();
   } catch (err) {
     console.error(err);
     return [];
   }
 }
 
-// Display jobs on the page
+// Render jobs
 function displayJobs(jobs) {
   const results = document.getElementById("results");
   results.innerHTML = "";
@@ -48,17 +47,17 @@ function displayJobs(jobs) {
   });
 }
 
-// Initialize search functionality
+// INIT
 async function initSearch() {
-  const allJobs = await loadJobs();
-  displayJobs(allJobs);
+  const jobs = await loadJobs();
+  displayJobs(jobs);
 
-  const searchInput = document.getElementById("search");
-  if (!searchInput) return;
+  const search = document.getElementById("search");
+  if (!search) return;
 
-  searchInput.addEventListener("input", (e) => {
+  search.addEventListener("input", e => {
     const term = e.target.value.toLowerCase();
-    const filtered = allJobs.filter(job =>
+    const filtered = jobs.filter(job =>
       (job.title || "").toLowerCase().includes(term) ||
       (job.company || "").toLowerCase().includes(term) ||
       (job.location || "").toLowerCase().includes(term) ||
@@ -69,5 +68,4 @@ async function initSearch() {
   });
 }
 
-// Run on page load
 document.addEventListener("DOMContentLoaded", initSearch);
