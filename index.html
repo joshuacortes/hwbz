@@ -388,42 +388,7 @@
   </script>
 
   
-  <script>
-    // Example in your displayJobs() function
-function displayJobs(jobs) {
-  const results = document.getElementById("results");
-  results.innerHTML = "";
 
-  if (!jobs || jobs.length === 0) {
-    results.innerHTML = "<p>No jobs found.</p>";
-    return;
-  }
-
-  jobs.forEach(job => {
-    results.innerHTML += `
-      <div class="job">
-        <h2>${escapeHtml(job.title)}</h2>
-        <p><strong>Company:</strong> ${escapeHtml(job.company)}</p>
-        <p><strong>Location:</strong> ${escapeHtml(job.location)}</p>
-        <p><strong>Type:</strong> ${escapeHtml(job.type)}</p>
-        <p>${job.description.replace(/\\n/g, "<br>")}</p>
-        <p><a href="${job.apply_url}" class="apply-button">Apply Now</a></p>
-        <p><em>Posted: ${escapeHtml(job.posted)}</em></p>
-      </div>
-    `;
-  });
-}
-
-// Basic HTML escape function
-function escapeHtml(text) {
-  if (!text) return "";
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-  </script>
   <style>
     
     .job { padding: 15px; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 15px; }
