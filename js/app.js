@@ -39,7 +39,7 @@ function displayJobs(jobs) {
         <p><strong>Company:</strong> ${escapeHtml(job.company)}</p>
         <p><strong>Location:</strong> ${escapeHtml(job.location)}</p>
         <p><strong>Type:</strong> ${escapeHtml(job.type)}</p>
-        <p>${job.description.replace(/\n/g, "<br>")}</p>
+        <p>${job.description.replace(/\\\\n/g, "<br>").replace(/\\n/g, "<br>")}</p>
         <p><a href="${job.apply_url}" class="apply-button">Apply Now</a></p>
         <p><em>Posted: ${escapeHtml(job.posted)}</em></p>
       </div>
