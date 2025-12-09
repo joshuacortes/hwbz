@@ -1,5 +1,5 @@
 // Config
-const JOBS_JSON = 'data/jobs.json';
+const JOBS_JSON = 'data/jobs.json'; // Path to your jobs.json file
 
 // Escape HTML safe function
 function escapeHtml(text) {
@@ -13,6 +13,7 @@ function escapeHtml(text) {
 // Format Posted Date → MM/DD/YYYY
 function formatDate(dateStr) {
   const d = new Date(dateStr);
+  if (isNaN(d)) return dateStr;
   const month = d.getMonth() + 1;
   const day = d.getDate();
   const year = d.getFullYear();
@@ -31,7 +32,7 @@ async function loadJobs() {
   }
 }
 
-// Render jobs WITH DROP-DOWN ACCORDIONS
+// Render jobs as accordion
 function displayJobs(jobs) {
   const results = document.getElementById("results");
   results.innerHTML = "";
@@ -43,18 +44,17 @@ function displayJobs(jobs) {
 
   jobs.forEach((job, index) => {
     const descriptionHtml = job.description
-      .replace(/\\\\n/g, "<br>")
       .replace(/\\n/g, "<br>")
       .replace(/\n/g, "<br>");
 
     results.innerHTML += `
-      <div class="job accordion">
-        <button class="accordion-header" data-acc="${index}">
-          ${escapeHtml(job.title)} — ${escapeHtml(job.company)}
+      <div class="accordion">
+        <button class="accordion-header">
+          <div><strong>${escapeHtml(job.title)}</strong> — ${escapeHtml(job.company)}</div>
+          <div style="font-size:14px; color:#555;">${escapeHtml(job.location)}</div>
         </button>
 
-        <div class="accordion-body" id="acc-${index}">
-          <p><strong>Location:</strong> ${escapeHtml(job.location)}</p>
+        <div class="accordion-body">
           <p><strong>Type:</strong> ${escapeHtml(job.type)}</p>
           <p>${descriptionHtml}</p>
           <p><a href="${job.apply_url}" class="apply-button">Apply Now</a></p>
@@ -65,16 +65,15 @@ function displayJobs(jobs) {
   });
 
   // Accordion toggle behavior
-  document.querySelectorAll(".accordion-header").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const id = btn.getAttribute("data-acc");
-      const panel = document.getElementById(`acc-${id}`);
-      panel.classList.toggle("open");
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const body = header.nextElementSibling;
+      body.classList.toggle("open");
     });
   });
 }
 
-// INIT
+// Initialize search functionality
 async function initSearch() {
   const jobs = await loadJobs();
   displayJobs(jobs);
@@ -95,4 +94,5 @@ async function initSearch() {
   });
 }
 
+// Initialize on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", initSearch);
