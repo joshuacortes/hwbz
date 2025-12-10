@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Create Job Listing | HWBZ Staffing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire | HWBZ Staffing</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-    }
-
+    /* ================= Header & Navigation ================= */
     header {
-      background-color: #1a237e;
+      background-color: #0a5d8f;
       color: white;
-      padding: 1rem 2rem;
+      padding: .75rem 2rem;
+      position:fixed;
+      width:100%;
+      z-index:9999;
     }
 
     .nav-container {
@@ -55,7 +49,29 @@
       cursor: pointer;
     }
 
+    .apply-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+    .main-container{
+      width:50%;
+    }
+
     @media (max-width: 768px) {
+       .main-container{
+      width:80%;
+    }
+      
       nav {
         flex-direction: column;
         width: 100%;
@@ -70,27 +86,151 @@
       .menu-toggle {
         display: block;
       }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
     }
 
-    .page-section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
+    /* ================= Hero Section ================= */
+    :root{
+      --accent: 255, 45, 85;
+      --glass: rgba(255,255,255,0.08);
+      --text-contrast: rgba(255,255,255,0.96);
+      --max-width: 1200px;
     }
 
-    .page-section h1 {
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    
+
+    h1{
+      margin:0 0 12px 0;
+      font-weight:700;
+      font-size:clamp(1.5rem, 5vw, 2.6rem);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+
+
+    .btn{
+      -webkit-appearance:none;appearance:none;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.9rem;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    }
+
+
+    /* ================= Employer Section ================= */
+    .employer-section {
+      position: relative;
+      background: #f8fafc;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 10px;
+      overflow: hidden;
+    }
+
+    .employer-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      filter: blur(8px) brightness(0.9);
+      transform: scale(1.04);
+      z-index: 0;
+    }
+
+    .employer-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.75);
+      z-index: 1;
+    }
+
+    .employer-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .employer-copy .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: 36px 18px;
+      max-width: 800px;
+      width: 100%;
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #1a237e;
     }
 
+    .employer-copy h2 {
+      margin: 0 0 12px 0;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-employer {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,122,255,0.12), rgba(0,122,255,0.05));
+      color: rgb(0,122,255);
+      font-weight: 600;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary-employer {
+      background: linear-gradient(90deg, rgba(0,122,255,1), rgba(80,160,255,1));
+      color: #fff;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-ghost-employer {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    .muted {
+      color: rgba(0,0,0,0.6);
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    @media(max-width:480px){
+      .employer-copy .card{padding:28px 20px;}
+      .employer-copy h2{font-size:1.6rem;}
+    }
+
+    /* ================= Footer ================= */
     footer {
-      background-color: #1a237e;
+      background-color: #0A5989;
       color: white;
       padding: 1.5rem 2rem;
       text-align: center;
-      margin-top: 3rem;
+      
     }
 
     .footer-container {
@@ -112,51 +252,187 @@
     .footer-links a:hover {
       text-decoration: underline;
     }
+
+    @media(max-width:480px){
+      .footer-links a{font-size:0.8rem;}
+    }
   </style>
+  <style>
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  text-align:left;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  font-size: 17px;
+  background: #f1f1f1;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background: #e8e8e8;
+}
+
+.accordion-body {
+  display: none;
+  padding: 15px;
+  line-height: 1.6;
+  text-align:left;
+}
+
+.accordion-body.open {
+  display: block;
+}
+
+.apply-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.apply-button:hover {
+  background: #005fcc;
+}
+</style>
+
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="nav-container">
-      <div class="logo">HWBZ Staffing</div>
+      <div class="logo"><a style="color:#fff; text-decoration:none;" href="/">HWBZ Staffing</a></div>
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
       <nav id="main-nav">
         <a href="/">Home</a>
-        <a href="/jobs">Job Listings</a>
-        <a href="/candidates">Candidates</a>
-        <a href="/employers">Employers</a>
-        <a href="/signin">Sign In</a>
-        <a href="/register">Register</a>
+        <a href="/jobs">Browse Job Listings</a>
+        <a href="/career-salaries">Find Salaries</a>
+        <a href="/hire">Employers/Post Job</a>
       </nav>
     </div>
   </header>
 
-  <!-- Main Section -->
-  <section class="page-section">
-    <h1>Create a Job Listing</h1>
+ 
+
   
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem; color: #333;">
-  Reach top-tier talent faster by submitting your open job positions through the form below. Whether you're hiring for temporary, contract, or full-time roles, HWBZ Staffing helps connect you with qualified candidates quickly and efficiently.
-</p>
-    <script type="text/javascript" src="https://form.jotform.com/jsform/252396967301161"></script>
+
+  <style>
+    
+    .job { text-align:left; padding: 15px; border: 1px solid #ddd; border-radius:15px; margin-bottom: 15px; }
+    input { width: 100%; padding: 12px; margin-bottom: 20px;border-radius:15px; }
+    h2 { margin: 0 0 10px; }
+    
+    .job-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.view-all-button {
+   display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.view-all-button:hover {
+  background: #005fcc;
+  opacity:0.9;
+}
+    
+    
+
+    #dateFilter {
+      text-align:left;
+  width: 130px;
+  padding: 12px;
+  font-size: 12px;
+      border-radius:15px;
+       cursor: pointer;
+}
+  
+    
+    .filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#search {
+  flex: 1;
+}
+
+    
+  </style>
+
+  <center>
+    <div style="height:100px;"></div>
+<a href="/"><img src="https://bzschoolofnursing.com/wp-content/uploads/2025/12/hwbz-staffing-symbol-100px.png"/></a>
+    <br><br>
+  <div class="main-container">
+<h1>Employers</h1><br>
+    <h2>Find the right candidate</h2>
+
+    </div>
+<br><br> 
+  <!-- Employer Section -->
+  <section class="employer-section" id="employers">
+    <div class="employer-inner">
+      <div class="employer-copy">
+        <div class="card">
+          <h2>
+          Reach qualified candidates fast
+            <span class="highlight-employer">by posting your job openings</span>
+          </h2>
+          <p class="lead">
+            Whether you're hiring for your business, startup, or team - post your open positions and start connecting with qualified job seekers instantly.
+          </p>
+
+       <script type="text/javascript" src="https://form.jotform.com/jsform/253426502135146"></script>
+          <br>
+        </div>
+      </div>
+    </div>
   </section>
+
 
   <!-- Footer -->
   <footer>
+     <div class="footer-links">
+      <a href="/hire">Hiring</a>
+      <a href="/jobs">Browse Jobs</a>
+      <a href="/career-salaries">Salaries</a>
+    </div>
+    <br>
     <p>
       <b>HWBZ Staffing</b>
 <br>
-      215 S Vermont Ave. Los Angeles, CA 90004<br><br>
+      215 S Vermont Ave. Los Angeles, CA 90004<br>
+      <a style="color:#fff;" href="https://maps.app.goo.gl/pbJGUQ7FNWwj7v7v6">Directions</a><br><br>
       (657)239-6371<br>
       hwbzstaffing@gmail.com<br>
       <br>
       
-      &copy;2025 HWBZ Staffing. All rights reserved.</p>
+      &copy;2025 HWBZ Staffing. <br>All rights reserved.</p>
     <div class="footer-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms</a>
-      <a href="/contact">Contact</a>
     </div>
   </footer>
 
@@ -167,6 +443,7 @@
       nav.classList.toggle("active");
     }
   </script> 
+  
 
 </body>
 </html>
