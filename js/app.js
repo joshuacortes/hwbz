@@ -1,5 +1,5 @@
 // Config
-const JOBS_JSON = 'data/jobs.json'; // Path to your jobs.json file
+const JOBS_JSON = 'data/jobs.json';
 
 // Escape HTML safe function
 function escapeHtml(text) {
@@ -8,6 +8,17 @@ function escapeHtml(text) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+// Check if date is within X days
+function isWithinDays(postedDate, days) {
+  const now = new Date();
+  const posted = new Date(postedDate);
+
+  const diffTime = now - posted;
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+  return diffDays <= days;
 }
 
 // Format Posted Date → MM/DD/YYYY
@@ -42,8 +53,8 @@ function displayJobs(jobs) {
     return;
   }
 
-  jobs.forEach((job, index) => {
-    const descriptionHtml = job.description
+  jobs.forEach(job => {
+    const descriptionHtml = (job.description || "")
       .replace(/\\n/g, "<br>")
       .replace(/\n/g, "<br>");
 
@@ -57,10 +68,12 @@ function displayJobs(jobs) {
         <div class="accordion-body">
           <p><strong>Type:</strong> ${escapeHtml(job.type)}</p>
           <p>${descriptionHtml}</p>
+
           <div class="job-actions">
-  <a href="${job.apply_url}" class="apply-button">Apply Now</a>
-  <a href="${job.view_all_url}" class="view-all-button">View All Jobs</a>
-</div>
+            <a href="${job.apply_url}" class="apply-button">Apply Now</a>
+            ${job.view_all_url ? `<a href="${job.view_all_url}" class="view-all-button">View All Jobs</a>` : ""}
+          </div>
+
           <p><em>Posted: ${formatDate(job.posted)}</em></p>
         </div>
       </div>
@@ -76,25 +89,39 @@ function displayJobs(jobs) {
   });
 }
 
-// Initialize search functionality
+// Initialize search + date filter
 async function initSearch() {
   const jobs = await loadJobs();
   displayJobs(jobs);
 
   const search = document.getElementById("search");
-  if (!search) return;
+  const dateFilter = document.getElementById("dateFilter");
 
-  search.addEventListener("input", e => {
-    const term = e.target.value.toLowerCase();
-    const filtered = jobs.filter(job =>
-      (job.title || "").toLowerCase().includes(term) ||
-      (job.company || "").toLowerCase().includes(term) ||
-      (job.location || "").toLowerCase().includes(term) ||
-      (job.type || "").toLowerCase().includes(term) ||
-      (job.description || "").toLowerCase().includes(term)
-    );
+  function applyFilters() {
+    const term = search ? search.value.toLowerCase() : "";
+    const days = dateFilter && dateFilter.value
+      ? parseInt(dateFilter.value)
+      : null;
+
+    const filtered = jobs.filter(job => {
+      const matchesText =
+        (job.title || "").toLowerCase().includes(term) ||
+        (job.company || "").toLowerCase().includes(term) ||
+        (job.location || "").toLowerCase().includes(term) ||
+        (job.type || "").toLowerCase().includes(term) ||
+        (job.description || "").toLowerCase().includes(term);
+
+      const matchesDate =
+        !days || isWithinDays(job.posted, days);
+
+      return matchesText && matchesDate;
+    });
+
     displayJobs(filtered);
-  });
+  }
+
+  if (search) search.addEventListener("input", applyFilters);
+  if (dateFilter) dateFilter.addEventListener("change", applyFilters);
 }
 
 // Initialize on DOMContentLoaded
