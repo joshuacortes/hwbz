@@ -64,7 +64,7 @@
 }
 
     .main-container{
-      width:40%;
+      width:50%;
     }
 
     @media (max-width: 768px) {
@@ -357,12 +357,26 @@
 }
 
     #dateFilter {
-  width: 200px;
+      text-align:left;
+  width: 130px;
   padding: 12px;
-  margin-bottom: 15px;
-  font-size: 16px;
+  font-size: 12px;
       border-radius:15px;
+       cursor: pointer;
 }
+  
+    
+    .filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#search {
+  flex: 1;
+}
+
     
   </style>
 
@@ -374,15 +388,17 @@
 <h1>Search Jobs</h1><br>
     <h2>Your next job starts here</h2>
 
-    <select id="dateFilter">
-  <option value="">Filter by date posted</option>
-  <option value="1">Last 24 hours</option>
-  <option value="3">Last 3 days</option>
-  <option value="7">Last 7 days</option>
-  <option value="14">Last 14 days</option>
-</select>
+   <div class="filters">
+  <select id="dateFilter">
+    <option value="">Date Posted</option>
+    <option value="1">Last 24 hours</option>
+    <option value="3">Last 3 days</option>
+    <option value="7">Last 7 days</option>
+    <option value="14">Last 14 days</option>
+  </select>
+</div>
     
-<input type="text" id="search" placeholder="Search job title, keywords or company..." />
+<input type="text" id="search" placeholder="Search job title, city, keywords or company.." />
 
 <div id="results"></div>
 
