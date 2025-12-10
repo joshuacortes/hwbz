@@ -57,7 +57,10 @@ function displayJobs(jobs) {
         <div class="accordion-body">
           <p><strong>Type:</strong> ${escapeHtml(job.type)}</p>
           <p>${descriptionHtml}</p>
-          <p><a href="${job.apply_url}" class="apply-button">Apply Now</a></p>
+          <div class="job-actions">
+  <a href="${job.apply_url}" class="apply-button">Apply Now</a>
+  <a href="${job.view_all_url}" class="view-all-button">View All Jobs</a>
+</div>
           <p><em>Posted: ${formatDate(job.posted)}</em></p>
         </div>
       </div>
