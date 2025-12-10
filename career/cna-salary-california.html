@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNA Salary in California | HWBZ Staffing</title>
+  <style>
+    /* ================= Header & Navigation ================= */
+    header {
+      background-color: #0a5d8f;
+      color: white;
+      padding: .75rem 2rem;
+      position:fixed;
+      width:100%;
+      z-index:9999;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c5cae9;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .apply-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+    .main-container{
+      width:80%;
+      text-align:left;
+    }
+
+    ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+    
+    @media (max-width: 768px) {
+       .main-container{
+      width:90%;
+    }
+      
+      nav {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ================= Hero Section ================= */
+    :root{
+      --accent: 255, 45, 85;
+      --glass: rgba(255,255,255,0.08);
+      --text-contrast: rgba(255,255,255,0.96);
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    
+
+    h1{
+      margin:0 0 12px 0;
+      font-weight:700;
+      font-size:clamp(1.5rem, 5vw, 2.6rem);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+
+
+    .btn{
+      -webkit-appearance:none;appearance:none;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.9rem;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    }
+
+
+    /* ================= Employer Section ================= */
+    .employer-section {
+      position: relative;
+      background: #f8fafc;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 10px;
+      overflow: hidden;
+    }
+
+    .employer-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      filter: blur(8px) brightness(0.9);
+      transform: scale(1.04);
+      z-index: 0;
+    }
+
+    .employer-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.75);
+      z-index: 1;
+    }
+
+    .employer-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .employer-copy .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: 36px 18px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .employer-copy h2 {
+      margin: 0 0 12px 0;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-employer {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,122,255,0.12), rgba(0,122,255,0.05));
+      color: rgb(0,122,255);
+      font-weight: 600;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary-employer {
+      background: linear-gradient(90deg, rgba(0,122,255,1), rgba(80,160,255,1));
+      color: #fff;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-ghost-employer {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    .muted {
+      color: rgba(0,0,0,0.6);
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    @media(max-width:480px){
+      .employer-copy .card{padding:28px 20px;}
+      .employer-copy h2{font-size:1.6rem;}
+    }
+
+    /* ================= Footer ================= */
+    footer {
+      background-color: #0A5989;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #c5cae9;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:480px){
+      .footer-links a{font-size:0.8rem;}
+    }
+  </style>
+  <style>
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  text-align:left;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  font-size: 17px;
+  background: #f1f1f1;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background: #e8e8e8;
+}
+
+.accordion-body {
+  display: none;
+  padding: 15px;
+  line-height: 1.6;
+  text-align:left;
+}
+
+.accordion-body.open {
+  display: block;
+}
+
+.apply-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.apply-button:hover {
+  background: #005fcc;
+}
+</style>
+
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo"><a style="color:#fff; text-decoration:none;" href="/">HWBZ Staffing</a></div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="main-nav">
+        <a href="/">Home</a>
+        <a href="/jobs">Browse Job Listings</a>
+        <a href="/career-salaries">Find Salaries</a>
+        <a href="/hire">Employers/Post Job</a>
+      </nav>
+    </div>
+  </header>
+
+ 
+
+  
+
+  <style>
+    
+    .job { text-align:left; padding: 15px; border: 1px solid #ddd; border-radius:15px; margin-bottom: 15px; }
+    input { width: 100%; padding: 12px; margin-bottom: 20px;border-radius:15px; }
+    h2 { margin: 0 0 10px; }
+    
+    .job-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.view-all-button {
+   display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.view-all-button:hover {
+  background: #005fcc;
+  opacity:0.9;
+}
+    
+    
+
+    #dateFilter {
+      text-align:left;
+  width: 130px;
+  padding: 12px;
+  font-size: 12px;
+      border-radius:15px;
+       cursor: pointer;
+}
+  
+    
+    .filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#search {
+  flex: 1;
+}
+
+    
+  </style>
+
+  <center>
+    <div style="height:100px;"></div>
+
+  <div class="main-container">
+<h1>CNA Salary in California</h1><br>
+    <h2>How much does a Nursing Assistant make in California?</h2>
+
+    <h4>Explore CNA Earnings, Pay Factors, and Career Insights</h4>
+    <p>Certified Nurse Assistants (CNAs) play a critical role in healthcare, providing essential patient care under the supervision of licensed nurses. Understanding the salary landscape for CNAs in California can help you make informed career decisions.</p>
+
+    <h3>Average CNA Salary</h3>
+    <p>On average, CNAs in California earn between <b>$41,000 - $45,000 annually</b> (approximately $20/hour). Entry-level positions may start lower, while experienced CNAs or those working in high-demand regions can earn significantly more.</p>
+
+    <h3>Hourly vs Annual Pay</h3>
+    <ul>
+        <li><b>Hourly:</b> $18 - $20/hour</li>
+        <li><b>Annual:</b> $41,000 - $45,000</li>
+    </ul>
+<br><br>
+    <hr>
+    <br>
+    <h2>CNA Salary Overview</h2>
+    <p>Use the table below to quickly understand the typical pay ranges and factors for CNAs in California.</p>
+
+    <table style="width:100%; border-collapse: collapse; text-align: left; margin-bottom:20px;">
+        <thead>
+            <tr style="background-color:#f1f1f1;">
+                <th style="padding:12px; border:1px solid #ddd;">Category</th>
+                <th style="padding:12px; border:1px solid #ddd;">Hourly Rate</th>
+                <th style="padding:12px; border:1px solid #ddd;">Annual Salary</th>
+                <th style="padding:12px; border:1px solid #ddd;">Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:12px; border:1px solid #ddd;">Average CNA</td>
+                <td style="padding:12px; border:1px solid #ddd;">$18 - $20</td>
+                <td style="padding:12px; border:1px solid #ddd;">$41,000 - $45,000</td>
+                <td>Typical pay across California</td>
+            </tr>
+            <tr>
+                <td style="padding:12px; border:1px solid #ddd;">Entry-Level</td>
+                <td style="padding:12px; border:1px solid #ddd;">$16 - $22</td>
+                <td style="padding:12px; border:1px solid #ddd;">$33,000 - $46,000</td>
+                <td>New CNAs or small facilities</td>
+            </tr>
+            <tr>
+                <td style="padding:12px; border:1px solid #ddd;">Experienced / High-Paying Areas</td>
+                <td style="padding:12px; border:1px solid #ddd;">$24 - $26+</td>
+                <td style="padding:12px; border:1px solid #ddd;">$50,000+</td>
+                <td>Top earners in hospitals or Bay Area locations</td>
+            </tr>
+            <tr>
+                <td style="padding:12px; border:1px solid #ddd;">Shift Differentials</td>
+                <td style="padding:12px; border:1px solid #ddd;">Varies</td>
+                <td style="padding:12px; border:1px solid #ddd;">Varies</td>
+                <td>Night, weekend, and holiday shifts may pay extra</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/jobs" class="view-all-button">Browse CNA Job Listings</a>
+
+    <br><br>
+    
+
+    
+    <h3>Factors Influencing CNA Pay</h3>
+    <ul>
+        <li><b>Location:</b> CNAs in areas with higher living costs, like San Francisco or the Bay Area, typically earn more.</li>
+        <li><b>Experience:</b> Entry-level CNAs start lower ($33k/year), while seasoned professionals earn more ($46k+).</li>
+        <li><b>Employer Type:</b> Hospitals and specialized care centers often offer higher wages than smaller nursing facilities.</li>
+        <li><b>Shift Differentials:</b> Night, weekend, and holiday shifts usually come with additional pay.</li>
+    </ul>
+
+    <h3>Examples of Pay Ranges</h3>
+    <p>
+        <b>Entry-Level:</b> $16 - $22/hour (~$33,000 - $46,000/year) <br>
+        <b>Experienced / Top-Paying Locations:</b> $24 - $26+/hour (~$50,000+/year)
+    </p>
+
+    <h3>Key Takeaways</h3>
+    <p>The salary for CNAs varies widely depending on location, experience, facility type, and shift. To maximize earnings, research opportunities in top-paying cities like San Francisco, San Jose, or Santa Clara, and consider facilities that offer shift differentials or specialized care roles.</p>
+
+    <a href="/jobs" class="view-all-button">Browse CNA Job Listings</a>
+    <br><br>
+  </div></div>
+</center>
+  
+  
+<br><br>
+<br><br> 
+
+
+  <!-- Footer -->
+  <footer>
+     <div class="footer-links">
+      <a href="/hire">Hiring</a>
+      <a href="/jobs">Browse Jobs</a>
+      <a href="/career-salaries">Salaries</a>
+    </div>
+    <br>
+    <p>
+      <b>HWBZ Staffing</b>
+<br>
+      215 S Vermont Ave. Los Angeles, CA 90004<br>
+      <a style="color:#fff;" href="https://maps.app.goo.gl/pbJGUQ7FNWwj7v7v6">Directions</a><br><br>
+      (657)239-6371<br>
+      hwbzstaffing@gmail.com<br>
+      <br>
+      
+      &copy;2025 HWBZ Staffing. <br>All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("main-nav");
+      nav.classList.toggle("active");
+    }
+  </script> 
+  
+
+</body>
+</html>
