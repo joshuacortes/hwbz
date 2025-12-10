@@ -5,24 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Job Listings | HWBZ Staffing</title>
   <style>
-    /* ================= Global ================= */
-    :root{
-      --accent: 255, 45, 85;
-      --text-dark: #111;
-      --text-light: rgba(255,255,255,0.96);
-      --max-width: 1200px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text-dark)}
-
-    a {text-decoration:none}
-
     /* ================= Header & Navigation ================= */
     header {
-      background-color: #1a237e;
+      background-color: #0a5d8f;
       color: white;
-      padding: 1rem 2rem;
+      padding: .75rem 2rem;
+      position:fixed;
+      width:100%;
+      z-index:9999;
     }
 
     .nav-container {
@@ -59,7 +49,29 @@
       cursor: pointer;
     }
 
+    .apply-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+    .main-container{
+      width:40%;
+    }
+
     @media (max-width: 768px) {
+       .main-container{
+      width:80%;
+    }
+      
       nav {
         flex-direction: column;
         width: 100%;
@@ -84,41 +96,141 @@
       }
     }
 
-    /* ================= Jobs Section ================= */
-    .jobs-section {
-      background-color: #f8fafc;
-      padding: 80px 20px;
+    /* ================= Hero Section ================= */
+    :root{
+      --accent: 255, 45, 85;
+      --glass: rgba(255,255,255,0.08);
+      --text-contrast: rgba(255,255,255,0.96);
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    
+
+    h1{
+      margin:0 0 12px 0;
+      font-weight:700;
+      font-size:clamp(1.5rem, 5vw, 2.6rem);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+
+
+    .btn{
+      -webkit-appearance:none;appearance:none;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.9rem;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    }
+
+
+    /* ================= Employer Section ================= */
+    .employer-section {
+      position: relative;
+      background: #f8fafc;
+      color: #111;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      padding: 60px 10px;
+      overflow: hidden;
     }
 
-    .jobs-section h1 {
-      font-size: 2.2rem;
-      color: #1a237e;
-      margin-bottom: 12px;
-      text-align: center;
+    .employer-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      filter: blur(8px) brightness(0.9);
+      transform: scale(1.04);
+      z-index: 0;
     }
 
-    .jobs-section p.subtitle {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 32px;
-      text-align: center;
+    .employer-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.75);
+      z-index: 1;
     }
 
-    iframe {
+    .employer-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
       width: 100%;
-      border: 0;
-      min-height: 1500px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .employer-copy .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: 36px 18px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .employer-copy h2 {
+      margin: 0 0 12px 0;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-employer {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,122,255,0.12), rgba(0,122,255,0.05));
+      color: rgb(0,122,255);
+      font-weight: 600;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary-employer {
+      background: linear-gradient(90deg, rgba(0,122,255,1), rgba(80,160,255,1));
+      color: #fff;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-ghost-employer {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    .muted {
+      color: rgba(0,0,0,0.6);
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    @media(max-width:480px){
+      .employer-copy .card{padding:28px 20px;}
+      .employer-copy h2{font-size:1.6rem;}
     }
 
     /* ================= Footer ================= */
     footer {
-      background-color: #1a237e;
+      background-color: #0A5989;
       color: white;
       padding: 1.5rem 2rem;
       text-align: center;
+      
     }
 
     .footer-container {
@@ -145,57 +257,140 @@
       .footer-links a{font-size:0.8rem;}
     }
   </style>
+  <style>
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  text-align:left;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  font-size: 17px;
+  background: #f1f1f1;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background: #e8e8e8;
+}
+
+.accordion-body {
+  display: none;
+  padding: 15px;
+  line-height: 1.6;
+  text-align:left;
+}
+
+.accordion-body.open {
+  display: block;
+}
+
+.apply-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.apply-button:hover {
+  background: #005fcc;
+}
+</style>
+
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="nav-container">
-      <div class="logo">HWBZ Staffing</div>
+      <div class="logo"><a style="color:#fff; text-decoration:none;" href="/">HWBZ Staffing</a></div>
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
       <nav id="main-nav">
         <a href="/">Home</a>
-        <a href="/jobs">Job Listings</a>
-        <a href="/candidates">Candidates</a>
-        <a href="/employers">Employers</a>
+        <a href="/jobs">Browse Job Listings</a>
+        <a href="/career-salaries">Find Salaries</a>
+        <a href="/hire">Employers/Post Job</a>
       </nav>
     </div>
   </header>
 
+ 
+
+  
+
+  <style>
+    
+    .job { text-align:left; padding: 15px; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 15px; }
+    input { width: 100%; padding: 12px; margin-bottom: 20px; }
+    h2 { margin: 0 0 10px; }
+  </style>
+
+  <center>
+    <div style="height:100px;"></div>
+  <div class="main-container">
+<h1>Browse Jobs for You</h1><br>
+    <h2>Welcome back</h2>
+
+<input type="text" id="search" placeholder="Search job title, keywords or company..." />
+
+<div id="results"></div>
+
+<script src="js/app.js"></script>
+    <br>
+    <a href="/apply">Post your resume</a> - It only takes a few seconds.
+    </center>
+    
+    </div>
+  
+  
+<br><br>
+<br><br> 
+ 
+  
+  
+  
+
+  <!-- Footer -->
+  <footer>
+     <div class="footer-links">
+      <a href="/hire">Hiring</a>
+      <a href="/jobs">Browse Jobs</a>
+      <a href="/career-salaries">Salaries</a>
+    </div>
+    <br>
+    <p>
+      <b>HWBZ Staffing</b>
+<br>
+      215 S Vermont Ave. Los Angeles, CA 90004<br>
+      <a style="color:#fff;" href="https://maps.app.goo.gl/pbJGUQ7FNWwj7v7v6">Directions</a><br><br>
+      (657)239-6371<br>
+      hwbzstaffing@gmail.com<br>
+      <br>
+      
+      &copy;2025 HWBZ Staffing. <br>All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+  <!-- Script -->
   <script>
     function toggleMenu() {
       const nav = document.getElementById("main-nav");
       nav.classList.toggle("active");
     }
-  </script>
-
-  <!-- Jobs Section -->
-  <section class="jobs-section">
-    <h1>Find Your Next Opportunity</h1>
-    <p class="subtitle">Browse verified job listings and upload your resume to get contacted by employers instantly.</p>
-    <iframe id="JotFormIFrame-252576171742157" 
-            title="HWBZ Jobs" 
-            allow="geolocation; microphone; camera" 
-            src="https://www.jotform.com/app/252576171742157?appEmbedded=1"
-            ></iframe> 
-  </section>
-
-  <!-- Footer -->
-  <footer> 
-    <p>
-      <b>HWBZ Staffing</b><br>
-      215 S Vermont Ave. Los Angeles, CA 90004<br><br>
-      (657)239-6371<br>
-      hwbzstaffing@gmail.com<br>
-      <br>
-      &copy;2025 HWBZ Staffing. All rights reserved.
-    </p>
-    <div class="footer-links">
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms</a>
-      <a href="/contact">Contact</a>
-    </div>
-  </footer>
+  </script> 
+  
 
 </body>
 </html>
