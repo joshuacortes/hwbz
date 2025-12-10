@@ -39,6 +39,16 @@
     "apply_url": "/apply",
     "view_all_url": "/jobs"
   },
+    {
+  "title": "CNA",
+  "company": "Pavilion on Pico Healthcare and Wellness",
+  "location": "5916 W. Pico Blvd Los Angeles 90035",
+  "type": "Full-Time",
+  "description": "CNA needs:\\n1 CNA - Part-Time 7AM-3PM\\n1 CNA - Full-Time 3PM-11PM",
+  "posted": "2025-12-10",
+  "apply_url": "/apply",
+    "view_all_url": "/jobs"
+},
   {
   "title": "Caregiver No Experience Required",
   "company": "Health Workers by Zip",
@@ -59,16 +69,7 @@
   "apply_url": "/apply",
     "view_all_url": "/jobs"
 },
-  {
-  "title": "CNA",
-  "company": "Pavilion on Pico Healthcare and Wellness",
-  "location": "5916 W. Pico Blvd Los Angeles 90035",
-  "type": "Full-Time",
-  "description": "CNA needs:\\n1 CNA - Part-Time 7AM-3PM\\n1 CNA - Full-Time 3PM-11PM",
-  "posted": "2025-12-10",
-  "apply_url": "/apply",
-    "view_all_url": "/jobs"
-},
+ 
   {
   "title": "Caregiver",
   "company": "Stardeni Independent Living",
