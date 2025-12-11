@@ -1,4 +1,4 @@
-  /* ================= Header & Navigation ================= */
+   /* ================= Header & Navigation ================= */
     header {
       background-color: #0a5d8f;
       color: white;
@@ -253,6 +253,7 @@
     @media(max-width:480px){
       .footer-links a{font-size:0.8rem;}
     }
+ 
 .accordion {
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -300,3 +301,57 @@
 .apply-button:hover {
   background: #005fcc;
 }
+
+
+
+
+ .job { text-align:left; padding: 15px; border: 1px solid #ddd; border-radius:15px; margin-bottom: 15px; }
+    input { width: 100%; padding: 12px; margin-bottom: 20px;border-radius:15px; }
+    h2 { margin: 0 0 10px; }
+    
+    .job-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.view-all-button {
+   display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.view-all-button:hover {
+  background: #005fcc;
+  opacity:0.9;
+}
+    
+    
+
+    #dateFilter {
+      text-align:left;
+  width: 130px;
+  padding: 12px;
+  font-size: 12px;
+      border-radius:15px;
+       cursor: pointer;
+}
+  
+    
+    .filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#search {
+  flex: 1;
+}
+
+
