@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salaries | HWBZ Staffing</title>
+  <style>
+    /* ================= Header & Navigation ================= */
+    header {
+      background-color: #0a5d8f;
+      color: white;
+      padding: .75rem 2rem;
+      position:fixed;
+      width:100%;
+      z-index:9999;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+        H1, H2, H3, h3{
+      color:#2d2d2d;
+    }
+    
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c5cae9;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .apply-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+    .main-container{
+      width:80%;
+      text-align:left;
+    }
+
+    ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+    
+    @media (max-width: 768px) {
+       .main-container{
+      width:90%;
+    }
+      
+      nav {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ================= Hero Section ================= */
+    :root{
+      --accent: 255, 45, 85;
+      --glass: rgba(255,255,255,0.08);
+      --text-contrast: rgba(255,255,255,0.96);
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    
+
+    h1{
+      margin:0 0 12px 0;
+      font-weight:700;
+      font-size:clamp(1.5rem, 5vw, 2.6rem);
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+
+
+    .btn{
+      -webkit-appearance:none;appearance:none;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:0.9rem;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    }
+
+
+    /* ================= Employer Section ================= */
+    .employer-section {
+      position: relative;
+      background: #f8fafc;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 10px;
+      overflow: hidden;
+    }
+
+    .employer-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      filter: blur(8px) brightness(0.9);
+      transform: scale(1.04);
+      z-index: 0;
+    }
+
+    .employer-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.75);
+      z-index: 1;
+    }
+
+    .employer-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .employer-copy .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: 36px 18px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .employer-copy h2 {
+      margin: 0 0 12px 0;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-employer {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,122,255,0.12), rgba(0,122,255,0.05));
+      color: rgb(0,122,255);
+      font-weight: 600;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary-employer {
+      background: linear-gradient(90deg, rgba(0,122,255,1), rgba(80,160,255,1));
+      color: #fff;
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-ghost-employer {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #111;
+      font-size: 0.9rem;
+    }
+
+    .muted {
+      color: rgba(0,0,0,0.6);
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    @media(max-width:480px){
+      .employer-copy .card{padding:28px 20px;}
+      .employer-copy h2{font-size:1.6rem;}
+    }
+
+    /* ================= Footer ================= */
+    footer {
+      background-color: #0A5989;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #c5cae9;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:480px){
+      .footer-links a{font-size:0.8rem;}
+    }
+  </style>
+  <style>
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  text-align:left;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  font-size: 17px;
+  background: #f1f1f1;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background: #e8e8e8;
+}
+
+.accordion-body {
+  display: none;
+  padding: 15px;
+  line-height: 1.6;
+  text-align:left;
+}
+
+.accordion-body.open {
+  display: block;
+}
+
+.apply-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.apply-button:hover {
+  background: #005fcc;
+}
+</style>
+
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo"><a style="color:#fff; text-decoration:none;" href="/">HWBZ Staffing</a></div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav id="main-nav">
+        <a href="/">Home</a>
+        <a href="/jobs">Browse Job Listings</a>
+        <a href="/career-salaries">Find Salaries</a>
+        <a href="/hire">Employers/Post Job</a>
+      </nav>
+    </div>
+  </header>
+
+ 
+
+  
+
+  <style>
+    
+    .job { text-align:left; padding: 15px; border: 1px solid #ddd; border-radius:15px; margin-bottom: 15px; }
+    input { width: 100%; padding: 12px; margin-bottom: 20px;border-radius:15px; }
+    h2 { margin: 0 0 10px; }
+    
+    .job-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.view-all-button {
+   display: inline-block;
+  padding: 10px 16px;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.view-all-button:hover {
+  background: #005fcc;
+  opacity:0.9;
+}
+    
+    
+
+    #dateFilter {
+      text-align:left;
+  width: 130px;
+  padding: 12px;
+  font-size: 12px;
+      border-radius:15px;
+       cursor: pointer;
+}
+  
+    
+    .filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#search {
+  flex: 1;
+}
+
+    
+  </style>
+
+  <center>
+    <div style="height:100px;"></div>
+
+  <div class="main-container">
+    
+    
+<h1>Browse Jobs</h1><br>
+    
+    
+    <h1>Jobs by Location</h1>
+    <p>Explore average salaries for popular jobs in California. Click a card to view detailed salary information and job openings.</p>
+    <br>
+<center>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; margin-top:20px;">
+
+        <!-- CNA - Los Angeles -->
+<a href="/career/cna-los-angeles.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Los Angeles</h3>
+    <p>Find CNA salary info & hiring facilities in Los Angeles.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Agoura Hills -->
+<a href="/career/cna-agoura-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Agoura Hills</h3>
+    <p>See CNA pay rates & hiring employers in Agoura Hills.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Alhambra -->
+<a href="/career/cna-alhambra.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Alhambra</h3>
+    <p>Explore CNA wages & local job opportunities in Alhambra.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Arcadia -->
+<a href="/career/cna-arcadia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Arcadia</h3>
+    <p>Check CNA pay & open shifts hiring now in Arcadia.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Artesia -->
+<a href="/career/cna-artesia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Artesia</h3>
+    <p>Review CNA salary details & open roles in Artesia.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Avalon -->
+<a href="/career/cna-avalon.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Avalon</h3>
+    <p>Discover CNA earnings & job listings in Avalon.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Azusa -->
+<a href="/career/cna-azusa.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Azusa</h3>
+    <p>Browse CNA pay rates & hiring facilities in Azusa.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+<!-- CNA - Baldwin Park -->
+<a href="/career/cna-baldwin-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Baldwin Park</h3>
+    <p>See CNA salary details & local employer openings.</p>
+    <p>View CNA Jobs</p>
+</a>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!-- Bell -->
+<a href="/career/cna-bell.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); 
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Bell</h3>
+    <p>Explore CNA job openings in Bell</p>
+</a>
+
+<!-- Bell Gardens -->
+<a href="/career/cna-bell-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Bell Gardens</h3>
+    <p>Explore CNA job openings in Bell Gardens</p>
+</a>
+
+<!-- Bellflower -->
+<a href="/career/cna-bellflower.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Bellflower</h3>
+    <p>Explore CNA job openings in Bellflower</p>
+</a>
+
+<!-- Beverly Hills -->
+<a href="/career/cna-beverly-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Beverly Hills</h3>
+    <p>Explore CNA job openings in Beverly Hills</p>
+</a>
+
+<!-- Bradbury -->
+<a href="/career/cna-bradbury.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Bradbury</h3>
+    <p>Explore CNA job openings in Bradbury</p>
+</a>
+
+<!-- Burbank -->
+<a href="/career/cna-burbank.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Burbank</h3>
+    <p>Explore CNA job openings in Burbank</p>
+</a>
+
+<!-- Calabasas -->
+<a href="/career/cna-calabasas.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Calabasas</h3>
+    <p>Explore CNA job openings in Calabasas</p>
+</a>
+
+<!-- Carson -->
+<a href="/career/cna-carson.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Carson</h3>
+    <p>Explore CNA job openings in Carson</p>
+</a>
+
+<!-- Cerritos -->
+<a href="/career/cna-cerritos.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Cerritos</h3>
+    <p>Explore CNA job openings in Cerritos</p>
+</a>
+
+<!-- Claremont -->
+<a href="/career/cna-claremont.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Claremont</h3>
+    <p>Explore CNA job openings in Claremont</p>
+</a>
+
+<!-- Commerce -->
+<a href="/career/cna-commerce.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Commerce</h3>
+    <p>Explore CNA job openings in Commerce</p>
+</a>
+
+<!-- Compton -->
+<a href="/career/cna-compton.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Compton</h3>
+    <p>Explore CNA job openings in Compton</p>
+</a>
+
+<!-- Covina -->
+<a href="/career/cna-covina.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Covina</h3>
+    <p>Explore CNA job openings in Covina</p>
+</a>
+
+<!-- Cudahy -->
+<a href="/career/cna-cudahy.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Cudahy</h3>
+    <p>Explore CNA job openings in Cudahy</p>
+</a>
+
+<!-- Culver City -->
+<a href="/career/cna-culver-city.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Culver City</h3>
+    <p>Explore CNA job openings in Culver City</p>
+</a>
+
+<!-- Diamond Bar -->
+<a href="/career/cna-diamond-bar.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Diamond Bar</h3>
+    <p>Explore CNA job openings in Diamond Bar</p>
+</a>
+
+<!-- Downey -->
+<a href="/career/cna-downey.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Downey</h3>
+    <p>Explore CNA job openings in Downey</p>
+</a>
+
+<!-- Duarte -->
+<a href="/career/cna-duarte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Duarte</h3>
+    <p>Explore CNA job openings in Duarte</p>
+</a>
+
+<!-- El Monte -->
+<a href="/career/cna-el-monte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – El Monte</h3>
+    <p>Explore CNA job openings in El Monte</p>
+</a>
+
+<!-- El Segundo -->
+<a href="/career/cna-el-segundo.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – El Segundo</h3>
+    <p>Explore CNA job openings in El Segundo</p>
+</a>
+
+<!-- Gardena -->
+<a href="/career/cna-gardena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Gardena</h3>
+    <p>Explore CNA job openings in Gardena</p>
+</a>
+
+<!-- Glendale -->
+<a href="/career/cna-glendale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Glendale</h3>
+    <p>Explore CNA job openings in Glendale</p>
+</a>
+
+<!-- Glendora -->
+<a href="/career/cna-glendora.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Glendora</h3>
+    <p>Explore CNA job openings in Glendora</p>
+</a>
+
+<!-- Hawaiian Gardens -->
+<a href="/career/cna-hawaiian-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Hawaiian Gardens</h3>
+    <p>Explore CNA job openings in Hawaiian Gardens</p>
+</a>
+
+<!-- Hawthorne -->
+<a href="/career/cna-hawthorne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Hawthorne</h3>
+    <p>Explore CNA job openings in Hawthorne</p>
+</a>
+
+<!-- Hermosa Beach -->
+<a href="/career/cna-hermosa-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Hermosa Beach</h3>
+    <p>Explore CNA job openings in Hermosa Beach</p>
+</a>
+
+<!-- Hidden Hills -->
+<a href="/career/cna-hidden-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Hidden Hills</h3>
+    <p>Explore CNA job openings in Hidden Hills</p>
+</a>
+
+<!-- Huntington Park -->
+<a href="/career/cna-huntington-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff;
+background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center; transition:transform 0.2s;">
+    <h3>CNA – Huntington Park</h3>
+    <p>Explore CNA job openings in Huntington Park</p>
+</a>
+      
+      
+      
+      
+      <!-- LVN – Bradbury -->
+<a href="/career/lvn-bradbury.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Bradbury</h3>
+    <p>Explore LVN salary insights & hiring facilities in Bradbury.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Burbank -->
+<a href="/career/lvn-burbank.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Burbank</h3>
+    <p>See LVN wages & employer openings in Burbank.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Calabasas -->
+<a href="/career/lvn-calabasas.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Calabasas</h3>
+    <p>Find LVN pay rates & healthcare hiring in Calabasas.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Carson -->
+<a href="/career/lvn-carson.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Carson</h3>
+    <p>Review LVN salary details & medical openings in Carson.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Cerritos -->
+<a href="/career/lvn-cerritos.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Cerritos</h3>
+    <p>Browse LVN wages & facilities hiring in Cerritos.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Claremont -->
+<a href="/career/lvn-claremont.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Claremont</h3>
+    <p>Check LVN pay & open roles across Claremont.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Commerce -->
+<a href="/career/lvn-commerce.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Commerce</h3>
+    <p>See LVN salary ranges & healthcare employers in Commerce.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Compton -->
+<a href="/career/lvn-compton.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Compton</h3>
+    <p>Explore LVN earnings & job openings in Compton.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Covina -->
+<a href="/career/lvn-covina.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Covina</h3>
+    <p>Discover LVN pay data & active hiring locations in Covina.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Cudahy -->
+<a href="/career/lvn-cudahy.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Cudahy</h3>
+    <p>Review LVN wages & new openings across Cudahy.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Culver City -->
+<a href="/career/lvn-culver-city.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Culver City</h3>
+    <p>Find LVN salary insights & hiring medical providers in Culver City.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Diamond Bar -->
+<a href="/career/lvn-diamond-bar.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Diamond Bar</h3>
+    <p>Check LVN pay info & healthcare jobs in Diamond Bar.</p>
+    <p>View LVN Jobs</p>
+</a>
+      
+      
+      
+      
+      <!-- LVN – Downey -->
+<a href="/career/lvn-downey.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Downey</h3>
+    <p>Explore LVN salary data & hiring facilities in Downey.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Duarte -->
+<a href="/career/lvn-duarte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Duarte</h3>
+    <p>See LVN wages & healthcare openings in Duarte.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – El Monte -->
+<a href="/career/lvn-el-monte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – El Monte</h3>
+    <p>Find LVN salary details & open roles in El Monte.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – El Segundo -->
+<a href="/career/lvn-el-segundo.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – El Segundo</h3>
+    <p>Review LVN pay & employer opportunities in El Segundo.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Gardena -->
+<a href="/career/lvn-gardena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Gardena</h3>
+    <p>Discover LVN wages & medical facilities hiring in Gardena.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Glendale -->
+<a href="/career/lvn-glendale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Glendale</h3>
+    <p>Explore LVN pay insights & openings in Glendale.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Glendora -->
+<a href="/career/lvn-glendora.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Glendora</h3>
+    <p>Browse LVN wages & hiring medical facilities in Glendora.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Hawaiian Gardens -->
+<a href="/career/lvn-hawaiian-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Hawaiian Gardens</h3>
+    <p>Check LVN pay & open shifts in Hawaiian Gardens.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Hawthorne -->
+<a href="/career/lvn-hawthorne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Hawthorne</h3>
+    <p>Review LVN salary info & employer hiring in Hawthorne.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Hermosa Beach -->
+<a href="/career/lvn-hermosa-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Hermosa Beach</h3>
+    <p>Explore LVN earnings & job listings in Hermosa Beach.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Hidden Hills -->
+<a href="/career/lvn-hidden-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Hidden Hills</h3>
+    <p>Find LVN pay details & facilities hiring in Hidden Hills.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Huntington Park -->
+<a href="/career/lvn-huntington-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Huntington Park</h3>
+    <p>Discover LVN wages & local job opportunities in Huntington Park.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Industry -->
+<a href="/career/lvn-industry.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Industry</h3>
+    <p>See LVN pay & open healthcare roles in Industry.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Inglewood -->
+<a href="/career/lvn-inglewood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Inglewood</h3>
+    <p>Browse LVN wage data & hiring employers in Inglewood.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Irwindale -->
+<a href="/career/lvn-irwindale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Irwindale</h3>
+    <p>Explore LVN pay and local healthcare openings in Irwindale.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – La Cañada Flintridge -->
+<a href="/career/lvn-la-cañada-flintridge.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – La Cañada Flintridge</h3>
+    <p>See LVN wages & open shifts in La Cañada Flintridge.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – La Habra Heights -->
+<a href="/career/lvn-la-habra-heights.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – La Habra Heights</h3>
+    <p>Discover LVN pay info & hiring employers in La Habra Heights.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – La Mirada -->
+<a href="/career/lvn-la-mirada.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – La Mirada</h3>
+    <p>Review LVN pay trends & openings in La Mirada.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – La Puente -->
+<a href="/career/lvn-la-puente.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – La Puente</h3>
+    <p>Check LVN salary data & jobs hiring in La Puente.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – La Verne -->
+<a href="/career/lvn-la-verne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – La Verne</h3>
+    <p>Find LVN pay details & healthcare openings in La Verne.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Lakewood -->
+<a href="/career/lvn-lakewood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Lakewood</h3>
+    <p>Explore LVN wages & open roles in Lakewood.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Lancaster -->
+<a href="/career/lvn-lancaster.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Lancaster</h3>
+    <p>Browse LVN wages & hiring healthcare providers in Lancaster.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Lawndale -->
+<a href="/career/lvn-lawndale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Lawndale</h3>
+    <p>Look up LVN wages & hiring employers in Lawndale.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Lomita -->
+<a href="/career/lvn-lomita.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Lomita</h3>
+    <p>Review LVN salaries & facility openings in Lomita.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Long Beach -->
+<a href="/career/lvn-long-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Long Beach</h3>
+    <p>Explore LVN pay & employer openings in Long Beach.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Lynwood -->
+<a href="/career/lvn-lynwood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Lynwood</h3>
+    <p>See LVN wage trends & open shifts in Lynwood.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Malibu -->
+<a href="/career/lvn-malibu.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Malibu</h3>
+    <p>Check LVN salary data & healthcare roles in Malibu.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Manhattan Beach -->
+<a href="/career/lvn-manhattan-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Manhattan Beach</h3>
+    <p>Find LVN pay insights & hiring facilities in Manhattan Beach.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Maywood -->
+<a href="/career/lvn-maywood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Maywood</h3>
+    <p>Explore LVN wages & local openings in Maywood.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Monrovia -->
+<a href="/career/lvn-monrovia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Monrovia</h3>
+    <p>Review LVN earnings & medical job listings in Monrovia.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Montebello -->
+<a href="/career/lvn-montebello.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Montebello</h3>
+    <p>See LVN salary ranges & hiring workplaces in Montebello.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Monterey Park -->
+<a href="/career/lvn-monterey-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Monterey Park</h3>
+    <p>Browse LVN wages & medical roles in Monterey Park.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Norwalk -->
+<a href="/career/lvn-norwalk.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Norwalk</h3>
+    <p>Find LVN earnings data & hiring facilities in Norwalk.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Palmdale -->
+<a href="/career/lvn-palmdale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Palmdale</h3>
+    <p>Check LVN pay trends & open positions in Palmdale.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Palos Verdes Estates -->
+<a href="/career/lvn-palos-verdes-estates.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Palos Verdes Estates</h3>
+    <p>Explore LVN wages & healthcare hiring in Palos Verdes Estates.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Paramount -->
+<a href="/career/lvn-paramount.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Paramount</h3>
+    <p>Review LVN pay & local job opportunities in Paramount.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Pasadena -->
+<a href="/career/lvn-pasadena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Pasadena</h3>
+    <p>Discover LVN wages & healthcare openings in Pasadena.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Pico Rivera -->
+<a href="/career/lvn-pico-rivera.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Pico Rivera</h3>
+    <p>Browse LVN earnings & open shifts in Pico Rivera.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Pomona -->
+<a href="/career/lvn-pomona.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Pomona</h3>
+    <p>Look up LVN salary info & hiring employers in Pomona.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Rancho Palos Verdes -->
+<a href="/career/lvn-rancho-palos-verdes.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Rancho Palos Verdes</h3>
+    <p>Check LVN pay & hiring roles across Rancho Palos Verdes.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Redondo Beach -->
+<a href="/career/lvn-redondo-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Redondo Beach</h3>
+    <p>See LVN wages & healthcare roles in Redondo Beach.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Rolling Hills -->
+<a href="/career/lvn-rolling-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Rolling Hills</h3>
+    <p>Browse LVN salary info & openings in Rolling Hills.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Rolling Hills Estates -->
+<a href="/career/lvn-rolling-hills-estates.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Rolling Hills Estates</h3>
+    <p>Find LVN wages & healthcare job postings in Rolling Hills Estates.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Rosemead -->
+<a href="/career/lvn-rosemead.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>LVN – Rosemead</h3>
+    <p>Explore LVN salary insights & job openings in Rosemead.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – San Dimas -->
+<a href="/career/lvn-san-dimas.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – San Dimas</h3>
+    <p>Check LVN pay data & healthcare openings in San Dimas.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – San Fernando -->
+<a href="/career/lvn-san-fernando.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – San Fernando</h3>
+    <p>Review LVN wages & medical job listings in San Fernando.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – San Gabriel -->
+<a href="/career/lvn-san-gabriel.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – San Gabriel</h3>
+    <p>Look up LVN salary details & hiring facilities in San Gabriel.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – San Marino -->
+<a href="/career/lvn-san-marino.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – San Marino</h3>
+    <p>Find LVN pay insights & open shifts in San Marino.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Santa Clarita -->
+<a href="/career/lvn-santa-clarita.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Santa Clarita</h3>
+    <p>Browse LVN wages & healthcare jobs in Santa Clarita.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Santa Fe Springs -->
+<a href="/career/lvn-santa-fe-springs.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Santa Fe Springs</h3>
+    <p>Explore LVN salary trends & local openings in Santa Fe Springs.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Santa Monica -->
+<a href="/career/lvn-santa-monica.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Santa Monica</h3>
+    <p>Review LVN pay & hiring roles across Santa Monica.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Sierra Madre -->
+<a href="/career/lvn-sierra-madre.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Sierra Madre</h3>
+    <p>Check LVN salary details & job openings in Sierra Madre.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Signal Hill -->
+<a href="/career/lvn-signal-hill.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Signal Hill</h3>
+    <p>Find LVN wages & hiring facilities in Signal Hill.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – South El Monte -->
+<a href="/career/lvn-south-el-monte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – South El Monte</h3>
+    <p>Explore LVN salary info & open roles in South El Monte.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – South Gate -->
+<a href="/career/lvn-south-gate.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – South Gate</h3>
+    <p>Browse LVN wages & medical positions in South Gate.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – South Pasadena -->
+<a href="/career/lvn-south-pasadena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – South Pasadena</h3>
+    <p>Review LVN wages & hiring healthcare providers in South Pasadena.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Temple City -->
+<a href="/career/lvn-temple-city.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Temple City</h3>
+    <p>See LVN pay & open jobs in Temple City.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Torrance -->
+<a href="/career/lvn-torrance.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Torrance</h3>
+    <p>Check LVN salary insights & healthcare hiring in Torrance.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Vernon -->
+<a href="/career/lvn-vernon.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Vernon</h3>
+    <p>Explore LVN pay info & job opportunities in Vernon.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Walnut -->
+<a href="/career/lvn-walnut.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Walnut</h3>
+    <p>Browse LVN wages & healthcare openings in Walnut.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – West Covina -->
+<a href="/career/lvn-west-covina.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – West Covina</h3>
+    <p>Find LVN salary info & hiring facilities in West Covina.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – West Hollywood -->
+<a href="/career/lvn-west-hollywood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – West Hollywood</h3>
+    <p>See LVN wage trends & healthcare openings in West Hollywood.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Westlake Village -->
+<a href="/career/lvn-westlake-village.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Westlake Village</h3>
+    <p>Explore LVN pay & medical job listings in Westlake Village.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+<!-- LVN – Whittier -->
+<a href="/career/lvn-whittier.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>LVN – Whittier</h3>
+    <p>Review LVN wages & healthcare facilities hiring in Whittier.</p>
+    <p>View LVN Jobs</p>
+</a>
+
+      
+      <!-- Caregiver – Los Angeles -->
+<a href="/career/caregiver-los-angeles.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Los Angeles</h3>
+    <p>Explore caregiver pay rates & hiring facilities in Los Angeles.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Agoura Hills -->
+<a href="/career/caregiver-agoura-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Agoura Hills</h3>
+    <p>See caregiver wages & local employer openings in Agoura Hills.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Alhambra -->
+<a href="/career/caregiver-alhambra.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Alhambra</h3>
+    <p>Browse caregiver salary info & hiring locations in Alhambra.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Arcadia -->
+<a href="/career/caregiver-arcadia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Arcadia</h3>
+    <p>Check caregiver pay insights & active openings in Arcadia.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Artesia -->
+<a href="/career/caregiver-artesia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Artesia</h3>
+    <p>Find caregiver wages & hiring providers in Artesia.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Avalon -->
+<a href="/career/caregiver-avalon.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Avalon</h3>
+    <p>Discover caregiver salary ranges & openings in Avalon.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Azusa -->
+<a href="/career/caregiver-azusa.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Azusa</h3>
+    <p>Review caregiver pay & available roles in Azusa.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Baldwin Park -->
+<a href="/career/caregiver-baldwin-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Baldwin Park</h3>
+    <p>See caregiver pay data & employers hiring in Baldwin Park.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Bell -->
+<a href="/career/caregiver-bell.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Bell</h3>
+    <p>Browse caregiver openings & compensation info in Bell.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Bell Gardens -->
+<a href="/career/caregiver-bell-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Bell Gardens</h3>
+    <p>Check caregiver wage ranges & hiring facilities in Bell Gardens.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Bellflower -->
+<a href="/career/caregiver-bellflower.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Bellflower</h3>
+    <p>Explore caregiver earnings & open shifts in Bellflower.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Beverly Hills -->
+<a href="/career/caregiver-beverly-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Beverly Hills</h3>
+    <p>Find caregiver pay details & premium employers in Beverly Hills.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Bradbury -->
+<a href="/career/caregiver-bradbury.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Bradbury</h3>
+    <p>Review caregiver pay & hiring providers in Bradbury.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Burbank -->
+<a href="/career/caregiver-burbank.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Burbank</h3>
+    <p>See caregiver wages & employer openings in Burbank.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Calabasas -->
+<a href="/career/caregiver-calabasas.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Calabasas</h3>
+    <p>Check caregiver earnings & nearby hiring opportunities.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Carson -->
+<a href="/career/caregiver-carson.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Carson</h3>
+    <p>Explore caregiver salary insights & open shifts in Carson.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Cerritos -->
+<a href="/career/caregiver-cerritos.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Cerritos</h3>
+    <p>Find caregiver wage info & active roles in Cerritos.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Claremont -->
+<a href="/career/caregiver-claremont.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Claremont</h3>
+    <p>Browse caregiver pay details & hiring caregivers in Claremont.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Commerce -->
+<a href="/career/caregiver-commerce.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Commerce</h3>
+    <p>See caregiver earnings & job listings in Commerce.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Compton -->
+<a href="/career/caregiver-compton.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Compton</h3>
+    <p>Discover caregiver pay data & local hiring in Compton.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Covina -->
+<a href="/career/caregiver-covina.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Covina</h3>
+    <p>Explore caregiver pay & shifts available in Covina.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Cudahy -->
+<a href="/career/caregiver-cudahy.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Cudahy</h3>
+    <p>Check caregiver wages & open roles across Cudahy.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Culver City -->
+<a href="/career/caregiver-culver-city.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Culver City</h3>
+    <p>See caregiver salary insights & hiring providers in Culver City.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Diamond Bar -->
+<a href="/career/caregiver-diamond-bar.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Diamond Bar</h3>
+    <p>Review caregiver pay data & hiring facilities in Diamond Bar.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Downey -->
+<a href="/career/caregiver-downey.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Downey</h3>
+    <p>Find caregiver wage ranges & hiring locations in Downey.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Duarte -->
+<a href="/career/caregiver-duarte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Duarte</h3>
+    <p>Explore caregiver pay info & active roles in Duarte.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – El Monte -->
+<a href="/career/caregiver-el-monte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – El Monte</h3>
+    <p>Browse caregiver pay ranges & hiring employers in El Monte.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – El Segundo -->
+<a href="/career/caregiver-el-segundo.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – El Segundo</h3>
+    <p>See caregiver salary insights & available shifts in El Segundo.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Gardena -->
+<a href="/career/caregiver-gardena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Gardena</h3>
+    <p>Discover caregiver pay rates & hiring locations in Gardena.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Glendale -->
+<a href="/career/caregiver-glendale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Glendale</h3>
+    <p>Review caregiver earnings & employers hiring in Glendale.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Glendora -->
+<a href="/career/caregiver-glendora.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Glendora</h3>
+    <p>See caregiver wage data & open shifts in Glendora.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Hawaiian Gardens -->
+<a href="/career/caregiver-hawaiian-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Hawaiian Gardens</h3>
+    <p>Find caregiver pay & hiring facilities in Hawaiian Gardens.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Hawthorne -->
+<a href="/career/caregiver-hawthorne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Hawthorne</h3>
+    <p>Explore caregiver salaries & hiring opportunities in Hawthorne.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Hermosa Beach -->
+<a href="/career/caregiver-hermosa-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Hermosa Beach</h3>
+    <p>Check caregiver wage info & openings near Hermosa Beach.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Hidden Hills -->
+<a href="/career/caregiver-hidden-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Hidden Hills</h3>
+    <p>See caregiver pay & hiring providers in Hidden Hills.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Huntington Park -->
+<a href="/career/caregiver-huntington-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Huntington Park</h3>
+    <p>Browse caregiver salaries & employers hiring in Huntington Park.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Industry -->
+<a href="/career/caregiver-industry.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Industry</h3>
+    <p>Explore caregiver pay & job openings in the City of Industry.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Inglewood -->
+<a href="/career/caregiver-inglewood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Inglewood</h3>
+    <p>Discover caregiver wage data & hiring facilities in Inglewood.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Irwindale -->
+<a href="/career/caregiver-irwindale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Irwindale</h3>
+    <p>Find caregiver wage ranges & active roles in Irwindale.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – La Cañada Flintridge -->
+<a href="/career/caregiver-la-cañada-flintridge.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – La Cañada Flintridge</h3>
+    <p>See caregiver salary insights & open shifts in La Cañada Flintridge.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – La Habra Heights -->
+<a href="/career/caregiver-la-habra-heights.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – La Habra Heights</h3>
+    <p>Explore caregiver wages & hiring providers in La Habra Heights.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – La Mirada -->
+<a href="/career/caregiver-la-mirada.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – La Mirada</h3>
+    <p>Browse caregiver salary ranges & hiring employers in La Mirada.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – La Puente -->
+<a href="/career/caregiver-la-puente.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – La Puente</h3>
+    <p>Check caregiver wage info & available shifts in La Puente.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – La Verne -->
+<a href="/career/caregiver-la-verne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – La Verne</h3>
+    <p>See caregiver earnings & employers hiring in La Verne.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Lakewood -->
+<a href="/career/caregiver-lakewood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Lakewood</h3>
+    <p>Explore caregiver wages & hiring locations in Lakewood.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Lancaster -->
+<a href="/career/caregiver-lancaster.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Lancaster</h3>
+    <p>Discover caregiver salary data & hiring sites in Lancaster.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Lawndale -->
+<a href="/career/caregiver-lawndale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Lawndale</h3>
+    <p>Browse caregiver pay & hiring opportunities in Lawndale.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Lomita -->
+<a href="/career/caregiver-lomita.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Lomita</h3>
+    <p>Check caregiver wages & hiring facilities in Lomita.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Long Beach -->
+<a href="/career/caregiver-long-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Long Beach</h3>
+    <p>See caregiver earnings & employers hiring in Long Beach.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Lynwood -->
+<a href="/career/caregiver-lynwood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Lynwood</h3>
+    <p>Explore caregiver pay & available roles in Lynwood.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Malibu -->
+<a href="/career/caregiver-malibu.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Malibu</h3>
+    <p>Find caregiver salary insights & openings in Malibu.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Manhattan Beach -->
+<a href="/career/caregiver-manhattan-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Manhattan Beach</h3>
+    <p>See caregiver wages & hiring employers near Manhattan Beach.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Maywood -->
+<a href="/career/caregiver-maywood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Maywood</h3>
+    <p>Explore caregiver earnings & job listings in Maywood.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Monrovia -->
+<a href="/career/caregiver-monrovia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Monrovia</h3>
+    <p>Browse caregiver wage data & open shifts in Monrovia.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Montebello -->
+<a href="/career/caregiver-montebello.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Montebello</h3>
+    <p>Find caregiver pay & local hiring in Montebello.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Monterey Park -->
+<a href="/career/caregiver-monterey-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Monterey Park</h3>
+    <p>See caregiver salary ranges & active openings in Monterey Park.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Norwalk -->
+<a href="/career/caregiver-norwalk.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Norwalk</h3>
+    <p>Explore caregiver pay data & employers hiring in Norwalk.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Palmdale -->
+<a href="/career/caregiver-palmdale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Palmdale</h3>
+    <p>Review caregiver wages & available shifts in Palmdale.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Palos Verdes Estates -->
+<a href="/career/caregiver-palos-verdes-estates.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Palos Verdes Estates</h3>
+    <p>See caregiver earnings & open roles in Palos Verdes Estates.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Paramount -->
+<a href="/career/caregiver-paramount.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Paramount</h3>
+    <p>Explore caregiver salary info & employers hiring in Paramount.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Pasadena -->
+<a href="/career/caregiver-pasadena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Pasadena</h3>
+    <p>Discover caregiver pay & active hiring opportunities in Pasadena.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Pico Rivera -->
+<a href="/career/caregiver-pico-rivera.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Pico Rivera</h3>
+    <p>Check caregiver wages & hiring facilities in Pico Rivera.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Pomona -->
+<a href="/career/caregiver-pomona.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Pomona</h3>
+    <p>Find caregiver wage info & active roles in Pomona.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+<!-- Caregiver – Rancho Palos Verdes -->
+<a href="/career/caregiver-rancho-palos-verdes.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Caregiver – Rancho Palos Verdes</h3>
+    <p>Explore caregiver pay & employers hiring in Rancho Palos Verdes.</p>
+    <p>View Caregiver Jobs</p>
+</a>
+
+      
+      <!-- Entry-Level Video Game Designer – Los Angeles -->
+<a href="/career/entry-level-video-game-designer-los-angeles.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Los Angeles</h3>
+    <p>Explore beginner game design salaries & studios hiring in Los Angeles.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Agoura Hills -->
+<a href="/career/entry-level-video-game-designer-agoura-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Agoura Hills</h3>
+    <p>Find entry-level game design pay & hiring studios in Agoura Hills.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Alhambra -->
+<a href="/career/entry-level-video-game-designer-alhambra.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Alhambra</h3>
+    <p>Review entry-level wages & indie studio opportunities in Alhambra.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Arcadia -->
+<a href="/career/entry-level-video-game-designer-arcadia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Arcadia</h3>
+    <p>Explore beginner pay rates & game studios in Arcadia.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Artesia -->
+<a href="/career/entry-level-video-game-designer-artesia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Artesia</h3>
+    <p>Find starting game design salaries & employers in Artesia.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Avalon -->
+<a href="/career/entry-level-video-game-designer-avalon.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Avalon</h3>
+    <p>Review entry-level pay & remote-friendly design roles in Avalon.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Azusa -->
+<a href="/career/entry-level-video-game-designer-azusa.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Azusa</h3>
+    <p>Explore starting salaries & studios hiring new designers in Azusa.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Baldwin Park -->
+<a href="/career/entry-level-video-game-designer-baldwin-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Baldwin Park</h3>
+    <p>See beginner pay rates & game design openings in Baldwin Park.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Bell -->
+<a href="/career/entry-level-video-game-designer-bell.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Bell</h3>
+    <p>Find entry-level game design opportunities & wages in Bell.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Bell Gardens -->
+<a href="/career/entry-level-video-game-designer-bell-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Bell Gardens</h3>
+    <p>Explore starter salaries & studios hiring in Bell Gardens.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Bellflower -->
+<a href="/career/entry-level-video-game-designer-bellflower.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Bellflower</h3>
+    <p>See entry-level design pay & open roles in Bellflower.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Beverly Hills -->
+<a href="/career/entry-level-video-game-designer-beverly-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Beverly Hills</h3>
+    <p>Review beginner salaries & studio opportunities in Beverly Hills.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Bradbury -->
+<a href="/career/entry-level-video-game-designer-bradbury.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Bradbury</h3>
+    <p>Discover game design pay & indie dev roles in Bradbury.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Burbank -->
+<a href="/career/entry-level-video-game-designer-burbank.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Burbank</h3>
+    <p>Explore entry-level wages & game studios hiring in Burbank.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Calabasas -->
+<a href="/career/entry-level-video-game-designer-calabasas.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Calabasas</h3>
+    <p>See beginner pay & game design openings in Calabasas.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Carson -->
+<a href="/career/entry-level-video-game-designer-carson.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Carson</h3>
+    <p>Review entry-level wages & early-career design roles in Carson.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Cerritos -->
+<a href="/career/entry-level-video-game-designer-cerritos.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Cerritos</h3>
+    <p>Find beginner pay info & hiring studios in Cerritos.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Claremont -->
+<a href="/career/entry-level-video-game-designer-claremont.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Claremont</h3>
+    <p>Explore game design openings & starter pay in Claremont.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Commerce -->
+<a href="/career/entry-level-video-game-designer-commerce.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Commerce</h3>
+    <p>See beginner pay & game design roles hiring in Commerce.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Compton -->
+<a href="/career/entry-level-video-game-designer-compton.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Compton</h3>
+    <p>Review entry-level pay & opportunities in Compton.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Covina -->
+<a href="/career/entry-level-video-game-designer-covina.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Covina</h3>
+    <p>Discover game design wages & studios hiring in Covina.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Cudahy -->
+<a href="/career/entry-level-video-game-designer-cudahy.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Cudahy</h3>
+    <p>Explore beginner game design salaries & roles in Cudahy.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Culver City -->
+<a href="/career/entry-level-video-game-designer-culver-city.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Culver City</h3>
+    <p>Check starting wages & studio openings in Culver City.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Diamond Bar -->
+<a href="/career/entry-level-video-game-designer-diamond-bar.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Diamond Bar</h3>
+    <p>Review entry-level salaries & design roles in Diamond Bar.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Downey -->
+<a href="/career/entry-level-video-game-designer-downey.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Downey</h3>
+    <p>Explore starter pay rates & game studios in Downey.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Duarte -->
+<a href="/career/entry-level-video-game-designer-duarte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Duarte</h3>
+    <p>Find entry-level pay data & game design openings in Duarte.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – El Monte -->
+<a href="/career/entry-level-video-game-designer-el-monte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – El Monte</h3>
+    <p>See beginner salaries & hiring indie teams in El Monte.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – El Segundo -->
+<a href="/career/entry-level-video-game-designer-el-segundo.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – El Segundo</h3>
+    <p>Review entry-level design pay & major studio openings in El Segundo.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Gardena -->
+<a href="/career/entry-level-video-game-designer-gardena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Gardena</h3>
+    <p>Find starter wages & design jobs opening now in Gardena.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Glendale -->
+<a href="/career/entry-level-video-game-designer-glendale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Glendale</h3>
+    <p>Explore entry-level pay & game studios hiring in Glendale.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Glendora -->
+<a href="/career/entry-level-video-game-designer-glendora.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Glendora</h3>
+    <p>Review beginner pay info & studios hiring in Glendora.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Hawaiian Gardens -->
+<a href="/career/entry-level-video-game-designer-hawaiian-gardens.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Hawaiian Gardens</h3>
+    <p>Find entry-level design opportunities & pay info in Hawaiian Gardens.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Hawthorne -->
+<a href="/career/entry-level-video-game-designer-hawthorne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Hawthorne</h3>
+    <p>Review beginner wages & local design openings in Hawthorne.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Hermosa Beach -->
+<a href="/career/entry-level-video-game-designer-hermosa-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Hermosa Beach</h3>
+    <p>Explore game design starter wages & roles in Hermosa Beach.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+
+<!-- Entry-Level Video Game Designer – Hidden Hills -->
+<a href="/career/entry-level-video-game-designer-hidden-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition:transform 0.2s;">
+    <h3>Entry-Level Video Game Designer – Hidden Hills</h3>
+    <p>Discover entry-level design salaries & hiring studios in Hidden Hills.</p>
+    <p>View Game Designer Jobs</p>
+</a>
+<!-- Huntington Park -->
+<a href="/career/entry-level-video-game-designer-huntington-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Huntington Park</h3>
+    <p>View local entry-level game design roles in Huntington Park.</p>
+</a>
+
+<!-- Industry -->
+<a href="/career/entry-level-video-game-designer-industry.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Industry</h3>
+    <p>Explore beginner game design jobs in Industry, CA.</p>
+</a>
+
+<!-- Inglewood -->
+<a href="/career/entry-level-video-game-designer-inglewood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Inglewood</h3>
+    <p>Browse early-career game design openings in Inglewood.</p>
+</a>
+
+<!-- Irwindale -->
+<a href="/career/entry-level-video-game-designer-irwindale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Irwindale</h3>
+    <p>Start your game design career with companies in Irwindale.</p>
+</a>
+
+<!-- La Cañada Flintridge -->
+<a href="/career/entry-level-video-game-designer-la-cañada-flintridge.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – La Cañada Flintridge</h3>
+    <p>Game design job opportunities for beginners in La Cañada Flintridge.</p>
+</a>
+
+<!-- La Habra Heights -->
+<a href="/career/entry-level-video-game-designer-la-habra-heights.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – La Habra Heights</h3>
+    <p>See available junior game design roles in La Habra Heights.</p>
+</a>
+
+<!-- La Mirada -->
+<a href="/career/entry-level-video-game-designer-la-mirada.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – La Mirada</h3>
+    <p>Find starter positions in the game design field in La Mirada.</p>
+</a>
+
+<!-- La Puente -->
+<a href="/career/entry-level-video-game-designer-la-puente.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – La Puente</h3>
+    <p>Explore entry-level design roles at studios in La Puente.</p>
+</a>
+
+<!-- La Verne -->
+<a href="/career/entry-level-video-game-designer-la-verne.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – La Verne</h3>
+    <p>Discover early-career game development work in La Verne.</p>
+</a>
+
+<!-- Lakewood -->
+<a href="/career/entry-level-video-game-designer-lakewood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Lakewood</h3>
+    <p>Beginner game design opportunities available in Lakewood.</p>
+</a>
+
+<!-- Lancaster -->
+<a href="/career/entry-level-video-game-designer-lancaster.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Lancaster</h3>
+    <p>Launch your game design career with roles in Lancaster.</p>
+</a>
+
+<!-- Lawndale -->
+<a href="/career/entry-level-video-game-designer-lawndale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Lawndale</h3>
+    <p>Find junior game design job openings in Lawndale.</p>
+</a>
+
+<!-- Lomita -->
+<a href="/career/entry-level-video-game-designer-lomita.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Lomita</h3>
+    <p>Explore game design starter roles in Lomita.</p>
+</a>
+
+<!-- Long Beach -->
+<a href="/career/entry-level-video-game-designer-long-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Long Beach</h3>
+    <p>Browse game design career opportunities for new talent in Long Beach.</p>
+</a>
+
+<!-- Lynwood -->
+<a href="/career/entry-level-video-game-designer-lynwood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Lynwood</h3>
+    <p>Entry-level openings in game design available in Lynwood.</p>
+</a>
+
+<!-- Malibu -->
+<a href="/career/entry-level-video-game-designer-malibu.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Malibu</h3>
+    <p>Find starter game development roles in Malibu.</p>
+</a>
+
+<!-- Manhattan Beach -->
+<a href="/career/entry-level-video-game-designer-manhattan-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Manhattan Beach</h3>
+    <p>Gaming studios in Manhattan Beach hiring beginners.</p>
+</a>
+
+<!-- Maywood -->
+<a href="/career/entry-level-video-game-designer-maywood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Maywood</h3>
+    <p>Junior game designer roles available in Maywood.</p>
+</a>
+
+<!-- Monrovia -->
+<a href="/career/entry-level-video-game-designer-monrovia.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Monrovia</h3>
+    <p>Start your game design journey in Monrovia.</p>
+</a>
+
+<!-- Montebello -->
+<a href="/career/entry-level-video-game-designer-montebello.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Montebello</h3>
+    <p>View junior game design opportunities in Montebello.</p>
+</a>
+
+<!-- Monterey Park -->
+<a href="/career/entry-level-video-game-designer-monterey-park.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Monterey Park</h3>
+    <p>Explore beginner career paths in game design in Monterey Park.</p>
+</a>
+
+<!-- Norwalk -->
+<a href="/career/entry-level-video-game-designer-norwalk.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Norwalk</h3>
+    <p>See hiring opportunities for new talent in Norwalk.</p>
+</a>
+
+<!-- Palmdale -->
+<a href="/career/entry-level-video-game-designer-palmdale.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Palmdale</h3>
+    <p>Entry-level game design work available in Palmdale.</p>
+</a>
+
+<!-- Palos Verdes Estates -->
+<a href="/career/entry-level-video-game-designer-palos-verdes-estates.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Palos Verdes Estates</h3>
+    <p>Start your design career in Palos Verdes Estates.</p>
+</a>
+
+<!-- Paramount -->
+<a href="/career/entry-level-video-game-designer-paramount.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Paramount</h3>
+    <p>Browse new game design opportunities in Paramount.</p>
+</a>
+
+<!-- Pasadena -->
+<a href="/career/entry-level-video-game-designer-pasadena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Pasadena</h3>
+    <p>Find junior game developer roles in Pasadena.</p>
+</a>
+
+<!-- Pico Rivera -->
+<a href="/career/entry-level-video-game-designer-pico-rivera.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Pico Rivera</h3>
+    <p>Kick-off your design career in Pico Rivera.</p>
+</a>
+
+<!-- Pomona -->
+<a href="/career/entry-level-video-game-designer-pomona.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Pomona</h3>
+    <p>Explore beginner designer openings in Pomona.</p>
+</a>
+
+<!-- Rancho Palos Verdes -->
+<a href="/career/entry-level-video-game-designer-rancho-palos-verdes.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Rancho Palos Verdes</h3>
+    <p>See early-career opportunities in Rancho Palos Verdes.</p>
+</a>
+
+<!-- Redondo Beach -->
+<a href="/career/entry-level-video-game-designer-redondo-beach.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Redondo Beach</h3>
+    <p>Entry-level openings at gaming studios in Redondo Beach.</p>
+</a>
+
+<!-- Rolling Hills -->
+<a href="/career/entry-level-video-game-designer-rolling-hills.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Rolling Hills</h3>
+    <p>Explore junior design jobs in Rolling Hills.</p>
+</a>
+
+<!-- Rolling Hills Estates -->
+<a href="/career/entry-level-video-game-designer-rolling-hills-estates.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Rolling Hills Estates</h3>
+    <p>Start in gaming and design in Rolling Hills Estates.</p>
+</a>
+
+<!-- Rosemead -->
+<a href="/career/entry-level-video-game-designer-rosemead.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Rosemead</h3>
+    <p>Beginner game development roles in Rosemead.</p>
+</a>
+
+<!-- San Dimas -->
+<a href="/career/entry-level-video-game-designer-san-dimas.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – San Dimas</h3>
+    <p>Explore early career game design positions in San Dimas.</p>
+</a>
+
+<!-- San Fernando -->
+<a href="/career/entry-level-video-game-designer-san-fernando.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – San Fernando</h3>
+    <p>Junior level game design jobs in San Fernando.</p>
+</a>
+
+<!-- San Gabriel -->
+<a href="/career/entry-level-video-game-designer-san-gabriel.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – San Gabriel</h3>
+    <p>Find new game design opportunities in San Gabriel.</p>
+</a>
+
+<!-- San Marino -->
+<a href="/career/entry-level-video-game-designer-san-marino.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – San Marino</h3>
+    <p>Start game designing with roles available in San Marino.</p>
+</a>
+
+<!-- Santa Clarita -->
+<a href="/career/entry-level-video-game-designer-santa-clarita.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Santa Clarita</h3>
+    <p>Explore game design openings in Santa Clarita.</p>
+</a>
+
+<!-- Santa Fe Springs -->
+<a href="/career/entry-level-video-game-designer-santa-fe-springs.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Santa Fe Springs</h3>
+    <p>Begin your game dev journey in Santa Fe Springs.</p>
+</a>
+
+<!-- Santa Monica -->
+<a href="/career/entry-level-video-game-designer-santa-monica.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Santa Monica</h3>
+    <p>Top studios hiring new designers in Santa Monica.</p>
+</a>
+
+<!-- Sierra Madre -->
+<a href="/career/entry-level-video-game-designer-sierra-madre.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Sierra Madre</h3>
+    <p>View starter game development roles in Sierra Madre.</p>
+</a>
+
+<!-- Signal Hill -->
+<a href="/career/entry-level-video-game-designer-signal-hill.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Signal Hill</h3>
+    <p>Discover junior game design jobs in Signal Hill.</p>
+</a>
+
+<!-- South El Monte -->
+<a href="/career/entry-level-video-game-designer-south-el-monte.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – South El Monte</h3>
+    <p>Find early-career game design positions in South El Monte.</p>
+</a>
+
+<!-- South Gate -->
+<a href="/career/entry-level-video-game-designer-south-gate.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – South Gate</h3>
+    <p>Entry-level designer roles open in South Gate.</p>
+</a>
+
+<!-- South Pasadena -->
+<a href="/career/entry-level-video-game-designer-south-pasadena.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – South Pasadena</h3>
+    <p>See junior game design opportunities in South Pasadena.</p>
+</a>
+
+<!-- Temple City -->
+<a href="/career/entry-level-video-game-designer-temple-city.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Temple City</h3>
+    <p>Find starter game design roles in Temple City.</p>
+</a>
+
+<!-- Torrance -->
+<a href="/career/entry-level-video-game-designer-torrance.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Torrance</h3>
+    <p>Explore beginner opportunities at Torrance-area studios.</p>
+</a>
+
+<!-- Vernon -->
+<a href="/career/entry-level-video-game-designer-vernon.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Vernon</h3>
+    <p>Game design openings for new talent in Vernon.</p>
+</a>
+
+<!-- Walnut -->
+<a href="/career/entry-level-video-game-designer-walnut.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – Walnut</h3>
+    <p>Begin your design career with Walnut-area roles.</p>
+</a>
+
+<!-- West Covina -->
+<a href="/career/entry-level-video-game-designer-west-covina.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – West Covina</h3>
+    <p>View junior game design opportunities in West Covina.</p>
+</a>
+
+<!-- West Hollywood -->
+<a href="/career/entry-level-video-game-designer-west-hollywood.html" style="display:block; padding:20px; text-decoration:none; color:#0077ff; background:#f8fafc; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center;">
+    <h3>Entry-Level Video Game Designer – West Hollywood</h3>
+    <p>Start your game design career in West Hollywood.</p>
+</a>
+
+      
+      
+      
+    </div>
+</div>
+</center>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+<br><br>
+<br><br> 
+    </div>
+
+
+  <!-- Footer -->
+  <footer>
+     <div class="footer-links">
+      <a href="/hire">Hiring</a>
+      <a href="/jobs">Browse Jobs</a>
+      <a href="/career-salaries">Salaries</a>
+    </div>
+    <br>
+    <p>
+      <b>HWBZ Staffing</b>
+<br>
+      215 S Vermont Ave. Los Angeles, CA 90004<br>
+      <a style="color:#fff;" href="https://maps.app.goo.gl/pbJGUQ7FNWwj7v7v6">Directions</a><br><br>
+      (657)239-6371<br>
+      hwbzstaffing@gmail.com<br>
+      <br>
+      
+      &copy;2025 HWBZ Staffing. <br>All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("main-nav");
+      nav.classList.toggle("active");
+    }
+  </script> 
+  
+
+</body>
+</html>
